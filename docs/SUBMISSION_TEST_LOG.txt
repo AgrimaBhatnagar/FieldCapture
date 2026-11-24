@@ -1,0 +1,109 @@
+test_damage_full (test_all.Commands.test_damage_full) ... ok
+test_damage_no_surface (test_all.Commands.test_damage_no_surface) ... ok
+test_damage_two_word_room (test_all.Commands.test_damage_two_word_room) ... ok
+test_nameplate (test_all.Commands.test_nameplate) ... ok
+test_note_keeps_case (test_all.Commands.test_note_keeps_case) ... ok
+test_unknown (test_all.Commands.test_unknown) ... ok
+test_required_docs_exist (test_all.Docs.test_required_docs_exist) ... ok
+test_scoring (test_all.Eval.test_scoring) ... ok
+test_catalog_size (test_all.Lines.test_catalog_size) ... ok
+test_ceiling_stain (test_all.Lines.test_ceiling_stain) ... ok
+test_missing_size_flags_none (test_all.Lines.test_missing_size_flags_none) ... ok
+test_one_doc_per_room (test_all.Lines.test_one_doc_per_room) ... ok
+test_unset_type_makes_nothing (test_all.Lines.test_unset_type_makes_nothing) ... ok
+test_backoff_blocks_early_retry (test_all.Outbox.test_backoff_blocks_early_retry) ... ok
+test_duplicate_id_ignored (test_all.Outbox.test_duplicate_id_ignored) ... ok
+test_offline_then_online_loses_nothing (test_all.Outbox.test_offline_then_online_loses_nothing) ... ok
+test_send_exception_requeues (test_all.Outbox.test_send_exception_requeues) ... ok
+test_survives_restart (test_all.Outbox.test_survives_restart) ... ok
+test_blur_lowers_sharpness (test_all.Quality.test_blur_lowers_sharpness) ... ok
+test_dark_fails (test_all.Quality.test_dark_fails) ... ok
+test_edges_outside_centre_fail_framing (test_all.Quality.test_edges_outside_centre_fail_framing) ... ok
+test_flat_is_blurry (test_all.Quality.test_flat_is_blurry) ... ok
+test_good_passes (test_all.Quality.test_good_passes) ... ok
+test_sweep (test_all.Quality.test_sweep) ... ok
+test_invalid_record (test_all.Schema.test_invalid_record) ... ok
+test_valid_record (test_all.Schema.test_valid_record) ... ok
+test_bad_command_and_missing_frame (test_app.AppServer.test_bad_command_and_missing_frame) ... /usr/lib/python3.13/email/feedparser.py:476: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x7f13c27ab3d0>
+  for lineno, line in enumerate(lines):
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.13/email/feedparser.py:476: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x7f13b492c5e0>
+  for lineno, line in enumerate(lines):
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.13/email/feedparser.py:476: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x7f13b492c6d0>
+  for lineno, line in enumerate(lines):
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.13/email/feedparser.py:476: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x7f13b492c7c0>
+  for lineno, line in enumerate(lines):
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.13/email/feedparser.py:476: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x7f13b492c9a0>
+  for lineno, line in enumerate(lines):
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+ok
+test_dark_frame_is_rejected_not_stored (test_app.AppServer.test_dark_frame_is_rejected_not_stored) ... /mnt/data/fc_submit_audit/fieldcapture/app.py:43: ResourceWarning: unclosed file <_io.BufferedWriter name='/tmp/tmpkavfh8kg.jpg'>
+  fd, path = tempfile.mkstemp(suffix=".jpg"); os.close(fd); open(path, "wb").write(raw)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+ok
+test_edit_sets_tech_source (test_app.AppServer.test_edit_sets_tech_source) ... ok
+test_health_and_page (test_app.AppServer.test_health_and_page) ... ok
+test_note_from_another_thread_and_valid_job (test_app.AppServer.test_note_from_another_thread_and_valid_job) ... ok
+test_offline_queues_then_syncs (test_app.AppServer.test_offline_queues_then_syncs) ... ok
+test_js_matches_python (test_js_parity.Parity.test_js_matches_python) ... /mnt/data/fc_submit_audit/fieldcapture/tests/test_js_parity.py:12: ResourceWarning: unclosed file <_io.TextIOWrapper name='/mnt/data/fc_submit_audit/fieldcapture/web_prototype.html' mode='r' encoding='utf-8'>
+  html = open(os.path.join(ROOT, "web_prototype.html"), encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/mnt/data/fc_submit_audit/fieldcapture/tests/test_js_parity.py:19: ResourceWarning: unclosed file <_io.TextIOWrapper name='/tmp/tmpsv_p7qvw/t.js' mode='w' encoding='utf-8'>
+  open(os.path.join(d, "t.js"), "w").write(fn + "\nconst A=require('fs');const arrs=JSON.parse(A.readFileSync(process.argv[2]));"
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+ok
+test_features_shape_and_crack_signal (test_offline.Damage.test_features_shape_and_crack_signal) ... ok
+test_region_bbox_finds_brown_patch (test_offline.Extras.test_region_bbox_finds_brown_patch) ... ok
+test_region_bbox_none_on_blank (test_offline.Extras.test_region_bbox_none_on_blank) ... ok
+test_size_estimate_is_opt_in (test_offline.Extras.test_size_estimate_is_opt_in) ... ok
+test_strip_label_prefix (test_offline.Extras.test_strip_label_prefix) ... ok
+test_dates (test_offline.OcrParser.test_dates) ... ok
+test_model_serial_and_prefix_join (test_offline.OcrParser.test_model_serial_and_prefix_join) ... ok
+test_no_hallucination_on_empty (test_offline.OcrParser.test_no_hallucination_on_empty) ... ok
+test_ocr_on_rendered_text (test_offline.OcrParser.test_ocr_on_rendered_text) ... /opt/pyvenv/lib/python3.13/site-packages/PIL/PngImagePlugin.py:283: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x7f13c27ab3d0>
+  class PngInfo:
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/opt/pyvenv/lib/python3.13/site-packages/PIL/PngImagePlugin.py:283: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x7f13b492cc70>
+  class PngInfo:
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/opt/pyvenv/lib/python3.13/site-packages/PIL/PngImagePlugin.py:283: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x7f13b492cb80>
+  class PngInfo:
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/opt/pyvenv/lib/python3.13/site-packages/PIL/PngImagePlugin.py:283: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x7f13b492d4e0>
+  class PngInfo:
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/opt/pyvenv/lib/python3.13/site-packages/PIL/PngImagePlugin.py:283: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x7f13b492c6d0>
+  class PngInfo:
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+ok
+test_service_model_is_not_a_serial_label (test_offline.OcrParser.test_service_model_is_not_a_serial_label) ... ok
+test_split_model_joined (test_offline.OcrParser.test_split_model_joined) ... ok
+test_dark_frame_gets_retake_not_capture (test_offline.Process.test_dark_frame_gets_retake_not_capture) ... ok
+test_unknown_command (test_offline.Process.test_unknown_command) ... ok
+test_blur_ratio_orders (test_offline.QualityV2.test_blur_ratio_orders) ... ok
+test_dark_rejected_with_prompt (test_offline.QualityV2.test_dark_rejected_with_prompt) ... ok
+test_framing_only_for_nameplates (test_offline.QualityV2.test_framing_only_for_nameplates) ... ok
+test_damage_fallback_abstains (test_offline.UncertaintySafety.test_damage_fallback_abstains) ... /opt/pyvenv/lib/python3.13/site-packages/Cython/Shadow.py:376: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x7f13c27ab010>
+  class PointerInstance(PointerType):
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/opt/pyvenv/lib/python3.13/site-packages/sklearn/base.py:463: InconsistentVersionWarning: Trying to unpickle estimator DecisionTreeClassifier from version 1.9.1 when using version 1.8.0. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+ok
+test_identifier_verification_is_field_specific (test_offline.UncertaintySafety.test_identifier_verification_is_field_specific) ... ok
+test_missing_serial_is_not_a_retake_condition (test_offline.UncertaintySafety.test_missing_serial_is_not_a_retake_condition) ... ok
+test_commands_and_note_extraction (test_v5.CompleteAssessmentTests.test_commands_and_note_extraction) ... ok
+test_lineitems_and_depth_free_estimation (test_v5.CompleteAssessmentTests.test_lineitems_and_depth_free_estimation) ... ok
+test_pipeline_outbox_validation_and_evaluate (test_v5.CompleteAssessmentTests.test_pipeline_outbox_validation_and_evaluate) ... ok
+test_quality_load_check_and_sweep (test_v5.CompleteAssessmentTests.test_quality_load_check_and_sweep) ... ok
+test_session_lifecycle_and_disconnect_recovery (test_v5.CompleteAssessmentTests.test_session_lifecycle_and_disconnect_recovery) ... ok
+
+----------------------------------------------------------------------
+Ran 57 tests in 2.809s
+
+OK
+<sys>:0: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x7f13b492c5e0>
+<sys>:0: ResourceWarning: unclosed <socket.socket fd=4, family=2, type=1, proto=0, laddr=('127.0.0.1', 38897)>

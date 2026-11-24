@@ -1,0 +1,13 @@
+<!-- Merge into your Info.plist (from Meta's getting-started + build-integration-ios guides). Replace myfieldcapture. -->
+<key>CFBundleURLTypes</key><array><dict><key>CFBundleTypeRole</key><string>Editor</string>
+ <key>CFBundleURLName</key><string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+ <key>CFBundleURLSchemes</key><array><string>myfieldcapture</string></array></dict></array>
+<key>LSApplicationQueriesSchemes</key><array><string>fb-viewapp</string></array>
+<key>UISupportedExternalAccessoryProtocols</key><array><string>com.meta.ar.wearable</string></array>
+<key>UIBackgroundModes</key><array><string>bluetooth-peripheral</string><string>external-accessory</string></array>
+<key>NSBluetoothAlwaysUsageDescription</key><string>Needed to connect to Meta Wearables</string>
+<key>NSLocalNetworkUsageDescription</key><string>Needed to stream from Meta Wearables over Wi-Fi</string>
+<key>MWDAT</key><dict>
+ <key>AppLinkURLScheme</key><string>myfieldcapture://</string>
+ <key>MetaAppID</key><string>0</string>  <!-- 0 = Developer Mode. Use real ID + ClientToken + TeamID for release channels. -->
+</dict>

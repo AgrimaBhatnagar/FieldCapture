@@ -1,0 +1,9 @@
+# Optional vision training dependencies. Install only if not already present.
+torch>=2.2
+torchvision>=0.17
+
+# PaddleOCR is intentionally NOT pinned or reinstalled here. The application
+# uses the PaddleOCR version already installed in your environment.
+# Check it with: python tools/check_paddleocr.py
+# If it is missing, follow the official PaddleOCR installation instructions
+# for your Python and PaddlePaddle versions.

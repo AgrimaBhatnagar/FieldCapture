@@ -1,0 +1,1901 @@
+{
+  "coordinate_system": "Boxes use [ymin,xmin,ymax,xmax] on a 0 to 998 normalized coordinate grid. Overlay renderer scales these to each displayed image.",
+  "records": [
+    {
+      "id": "extra_01",
+      "title": "Entryway subfloor and baseboard",
+      "filename": "WhatsApp Image 2026-11-23 at 1.22.08 PM (1).jpeg",
+      "room": "Entryway",
+      "surface": "Subfloor and baseboard",
+      "damage_type": "water_intrusion",
+      "observation": "Severe water intrusion with subfloor staining, delamination or rot, a puncture hole on the left, and moisture swelling at the baseboard and trim.",
+      "dimensions": {
+        "subfloor_length_ft": [
+          6.5,
+          7.5
+        ],
+        "subfloor_width_ft": 4.0,
+        "subfloor_area_sq_ft": [
+          26,
+          30
+        ],
+        "baseboard_length_ft": 4.0,
+        "baseboard_height_ft": 0.5,
+        "baseboard_area_sq_ft": 2.0
+      },
+      "boxes": [
+        {
+          "label": "Primary subfloor water damage",
+          "kind": "damage",
+          "box": [
+            375,
+            0,
+            998,
+            998
+          ]
+        },
+        {
+          "label": "Subfloor rot hole",
+          "kind": "damage",
+          "box": [
+            515,
+            22,
+            546,
+            84
+          ]
+        },
+        {
+          "label": "Baseboard and wall peeling",
+          "kind": "damage",
+          "box": [
+            330,
+            0,
+            428,
+            528
+          ]
+        },
+        {
+          "label": "FLAT OUT BEST / STIFF FLOOR",
+          "kind": "ocr",
+          "box": [
+            495,
+            650,
+            682,
+            770
+          ]
+        },
+        {
+          "label": "TOUGH / QUIET",
+          "kind": "ocr",
+          "box": [
+            412,
+            118,
+            488,
+            225
+          ]
+        },
+        {
+          "label": "CLOSE GAP / PANEL EDGE",
+          "kind": "ocr",
+          "box": [
+            625,
+            390,
+            998,
+            595
+          ]
+        }
+      ],
+      "image_width": 1200,
+      "image_height": 1600
+    },
+    {
+      "id": "extra_02",
+      "title": "Living room wall and graffiti",
+      "filename": "WhatsApp Image 2026-11-23 at 1.22.08 PM (2).jpeg",
+      "room": "Living room",
+      "surface": "Wall",
+      "damage_type": "dampness_and_vandalism",
+      "observation": "Rising damp with lower wall plaster spalling and peeling paint, moisture staining across the back wall, and spray paint graffiti on both side wall regions.",
+      "dimensions": {
+        "lower_wall_length_ft": [
+          12,
+          14
+        ],
+        "lower_wall_height_ft": 2.5,
+        "lower_wall_area_sq_ft": [
+          30,
+          35
+        ],
+        "graffiti_length_ft": 2.5,
+        "graffiti_height_ft": 2.0,
+        "graffiti_area_sq_ft": 5.0
+      },
+      "boxes": [
+        {
+          "label": "Lower back wall plaster and paint damage",
+          "kind": "damage",
+          "box": [
+            575,
+            55,
+            668,
+            935
+          ]
+        },
+        {
+          "label": "Left wall lower dampness",
+          "kind": "damage",
+          "box": [
+            565,
+            0,
+            675,
+            58
+          ]
+        },
+        {
+          "label": "Graffiti text 2100 / tag, right wall",
+          "kind": "ocr",
+          "box": [
+            453,
+            740,
+            545,
+            908
+          ]
+        },
+        {
+          "label": "Graffiti tag, left wall",
+          "kind": "ocr",
+          "box": [
+            430,
+            0,
+            525,
+            42
+          ]
+        }
+      ],
+      "image_width": 914,
+      "image_height": 1600
+    },
+    {
+      "id": "extra_03",
+      "title": "Room with large windows",
+      "filename": "WhatsApp Image 2026-11-23 at 1.22.08 PM.jpeg",
+      "room": "Living room",
+      "surface": "Walls, ceiling and hardwood floor",
+      "damage_type": "multiple_surface_damage",
+      "observation": "Severe paint peeling and flaking, plaster hairline cracking, water staining on walls and ceiling, and heavy surface wear with moisture discoloration on hardwood flooring.",
+      "dimensions": {
+        "left_wall_length_ft": [
+          10,
+          12
+        ],
+        "left_wall_height_ft": [
+          9,
+          10
+        ],
+        "left_wall_area_sq_ft": [
+          90,
+          120
+        ],
+        "ceiling_length_ft": 8,
+        "ceiling_width_ft": 4,
+        "ceiling_area_sq_ft": 32,
+        "floor_length_ft": 12,
+        "floor_width_ft": 10,
+        "floor_area_sq_ft": 120
+      },
+      "boxes": [
+        {
+          "label": "Left wall peeling paint and plaster cracks",
+          "kind": "damage",
+          "box": [
+            55,
+            0,
+            695,
+            360
+          ]
+        },
+        {
+          "label": "Ceiling moisture damage",
+          "kind": "damage",
+          "box": [
+            128,
+            365,
+            225,
+            765
+          ]
+        },
+        {
+          "label": "Right and window wall dampness",
+          "kind": "damage",
+          "box": [
+            210,
+            420,
+            635,
+            998
+          ]
+        },
+        {
+          "label": "Worn and water damaged wood floor",
+          "kind": "damage",
+          "box": [
+            615,
+            0,
+            998,
+            998
+          ]
+        }
+      ],
+      "image_width": 720,
+      "image_height": 1280
+    },
+    {
+      "id": "extra_04",
+      "title": "Basement / utility room",
+      "filename": "WhatsApp Image 2026-11-23 at 1.22.09 PM (1).jpeg",
+      "room": "Basement / utility room",
+      "surface": "Concrete floor, masonry walls and ceiling",
+      "damage_type": "flooding_and_moisture_damage",
+      "observation": "Standing water and flooding on concrete slab, severe efflorescence and paint spalling on masonry block walls, and ceiling plaster delamination.",
+      "dimensions": {
+        "floor_length_ft": [
+          12,
+          14
+        ],
+        "floor_width_ft": [
+          10,
+          12
+        ],
+        "floor_area_sq_ft": [
+          120,
+          165
+        ],
+        "wall_perimeter_linear_ft": 36,
+        "wall_damage_height_ft": 3.5,
+        "wall_area_sq_ft": 125,
+        "ceiling_length_ft": 5,
+        "ceiling_width_ft": 3,
+        "ceiling_area_sq_ft": 15
+      },
+      "boxes": [
+        {
+          "label": "Standing water and wet floor",
+          "kind": "damage",
+          "box": [
+            492,
+            138,
+            805,
+            895
+          ]
+        },
+        {
+          "label": "Left masonry wall efflorescence and peeling",
+          "kind": "damage",
+          "box": [
+            355,
+            0,
+            695,
+            185
+          ]
+        },
+        {
+          "label": "Back and right wall moisture spalling",
+          "kind": "damage",
+          "box": [
+            385,
+            182,
+            615,
+            975
+          ]
+        },
+        {
+          "label": "Ceiling plaster delamination",
+          "kind": "damage",
+          "box": [
+            0,
+            635,
+            115,
+            998
+          ]
+        }
+      ],
+      "image_width": 765,
+      "image_height": 1020
+    },
+    {
+      "id": "extra_05",
+      "title": "Tiled corner wall",
+      "filename": "WhatsApp Image 2026-11-23 at 1.22.09 PM (2).jpeg",
+      "room": "Interior corner",
+      "surface": "Wall above terracotta tile baseboard",
+      "damage_type": "rising_damp",
+      "observation": "Moisture intrusion with paint blistering and bubbling, and crumbling plaster above the terracotta tile baseboard.",
+      "dimensions": {
+        "left_wall_length_ft": 3.0,
+        "left_wall_height_ft": 3.5,
+        "left_wall_area_sq_ft": 10.5,
+        "right_wall_length_ft": 1.5,
+        "right_wall_height_ft": 3.0,
+        "right_wall_area_sq_ft": 4.5,
+        "total_area_sq_ft": 15.0
+      },
+      "boxes": [
+        {
+          "label": "Left wall blistering and crumbling plaster",
+          "kind": "damage",
+          "box": [
+            332,
+            230,
+            922,
+            775
+          ]
+        },
+        {
+          "label": "Right wall paint bubbling",
+          "kind": "damage",
+          "box": [
+            190,
+            775,
+            455,
+            995
+          ]
+        }
+      ],
+      "image_width": 564,
+      "image_height": 925
+    },
+    {
+      "id": "extra_06",
+      "title": "Textured ceiling and wall corner",
+      "filename": "WhatsApp Image 2026-11-23 at 1.22.09 PM (3).jpeg",
+      "room": "Interior room corner",
+      "surface": "Ceiling and door casing",
+      "damage_type": "water_leak",
+      "observation": "Possible overhead roof or plumbing leak with brown water staining, drywall or plaster sagging, a linear ceiling crack, and minor cracking along the right door frame.",
+      "dimensions": {
+        "ceiling_length_ft": [
+          5,
+          6
+        ],
+        "ceiling_width_ft": [
+          3,
+          3.5
+        ],
+        "ceiling_area_sq_ft": [
+          15,
+          21
+        ]
+      },
+      "boxes": [
+        {
+          "label": "Ceiling water stain, sagging and crack",
+          "kind": "damage",
+          "box": [
+            115,
+            118,
+            612,
+            965
+          ]
+        },
+        {
+          "label": "Right door casing crack",
+          "kind": "damage",
+          "box": [
+            410,
+            918,
+            462,
+            998
+          ]
+        }
+      ],
+      "image_width": 756,
+      "image_height": 1008
+    },
+    {
+      "id": "extra_07",
+      "title": "Room with radiator and dark floor stain",
+      "filename": "WhatsApp Image 2026-11-23 at 1.22.09 PM (4).jpeg",
+      "room": "Room with radiator",
+      "surface": "Wood look flooring",
+      "damage_type": "floor_staining_and_pooled_liquid",
+      "observation": "Severe dark floor staining, possibly burn, chemical or water saturation near the radiator, with a separate glossy pooled liquid or moisture zone across the floor. Cause is unconfirmed.",
+      "dimensions": {
+        "dark_stain_length_ft": 6.0,
+        "dark_stain_width_ft": 4.5,
+        "dark_stain_area_sq_ft": 27.0,
+        "wet_zone_length_ft": 8.0,
+        "wet_zone_width_ft": 6.0,
+        "wet_zone_area_sq_ft": 48.0
+      },
+      "boxes": [
+        {
+          "label": "Dark floor stain or burn like damage",
+          "kind": "damage",
+          "box": [
+            490,
+            405,
+            622,
+            998
+          ]
+        },
+        {
+          "label": "Wet and moisture saturated floor zone",
+          "kind": "damage",
+          "box": [
+            555,
+            105,
+            835,
+            685
+          ]
+        }
+      ],
+      "image_width": 1200,
+      "image_height": 1600
+    },
+    {
+      "id": "extra_08",
+      "title": "Hallway and doorway subfloor",
+      "filename": "WhatsApp Image 2026-11-23 at 1.22.09 PM.jpeg",
+      "room": "Hallway / doorway",
+      "surface": "OSB subfloor and baseboard",
+      "damage_type": "water_intrusion_and_subfloor_delamination",
+      "observation": "Extensive water damage with dark discoloration, possible fungal or mold like staining, OSB subfloor delamination, a rot hole near the doorway threshold, and baseboard water damage.",
+      "dimensions": {
+        "subfloor_length_ft": [
+          8,
+          9
+        ],
+        "subfloor_width_ft": [
+          4.5,
+          5.0
+        ],
+        "subfloor_area_sq_ft": [
+          36,
+          45
+        ],
+        "baseboard_length_ft": 3.5,
+        "baseboard_height_ft": 0.5,
+        "baseboard_area_sq_ft": 1.75
+      },
+      "boxes": [
+        {
+          "label": "Main water damaged subfloor",
+          "kind": "damage",
+          "box": [
+            385,
+            35,
+            998,
+            998
+          ]
+        },
+        {
+          "label": "Subfloor rot hole",
+          "kind": "damage",
+          "box": [
+            550,
+            568,
+            582,
+            628
+          ]
+        },
+        {
+          "label": "Back wall baseboard water damage",
+          "kind": "damage",
+          "box": [
+            375,
+            570,
+            465,
+            765
+          ]
+        },
+        {
+          "label": "TOUGH / QUIET",
+          "kind": "ocr",
+          "box": [
+            502,
+            688,
+            558,
+            795
+          ]
+        }
+      ],
+      "image_width": 1200,
+      "image_height": 1600
+    },
+    {
+      "id": "extra_09",
+      "title": "Interior corner above laminate floor",
+      "filename": "WhatsApp Image 2026-11-23 at 1.22.10 PM (1).jpeg",
+      "room": "Interior corner",
+      "surface": "Walls and baseboard",
+      "damage_type": "rising_damp_and_paint_delamination",
+      "observation": "Moisture wicking with paint delamination, yellow brown water or mold like staining, exposed bare concrete or plaster patch, and slight rust or moisture staining on the baseboard.",
+      "dimensions": {
+        "left_wall_length_ft": 3.0,
+        "left_wall_height_ft": 2.5,
+        "left_wall_area_sq_ft": 7.5,
+        "right_wall_length_ft": 3.5,
+        "right_wall_height_ft": 2.5,
+        "right_wall_area_sq_ft": 8.75,
+        "total_area_sq_ft": 16.25
+      },
+      "boxes": [
+        {
+          "label": "Left wall peeling and damp stain",
+          "kind": "damage",
+          "box": [
+            148,
+            0,
+            645,
+            502
+          ]
+        },
+        {
+          "label": "Right wall peeling, staining and exposed plaster",
+          "kind": "damage",
+          "box": [
+            142,
+            502,
+            668,
+            998
+          ]
+        },
+        {
+          "label": "Baseboard moisture or rust spot",
+          "kind": "damage",
+          "box": [
+            648,
+            158,
+            678,
+            200
+          ]
+        }
+      ],
+      "image_width": 1200,
+      "image_height": 1600
+    },
+    {
+      "id": "extra_10",
+      "title": "Ceiling around ceiling fan",
+      "filename": "WhatsApp Image 2026-11-23 at 1.22.10 PM.jpeg",
+      "room": "Interior room",
+      "surface": "Ceiling",
+      "damage_type": "ceiling_water_intrusion",
+      "observation": "Widespread roof or slab water seepage with paint blistering, flaking, efflorescence and damp discoloration across the ceiling and around the ceiling fan mount.",
+      "dimensions": {
+        "upper_left_length_ft": 6.0,
+        "upper_left_width_ft": 4.0,
+        "upper_left_area_sq_ft": 24.0,
+        "fan_patch_length_ft": 4.5,
+        "fan_patch_width_ft": 4.0,
+        "fan_patch_area_sq_ft": 18.0,
+        "total_area_sq_ft": 42.0
+      },
+      "boxes": [
+        {
+          "label": "Upper and left ceiling paint peeling and blistering",
+          "kind": "damage",
+          "box": [
+            0,
+            0,
+            565,
+            895
+          ]
+        },
+        {
+          "label": "Center ceiling dampness and peeling around fan",
+          "kind": "damage",
+          "box": [
+            470,
+            215,
+            735,
+            895
+          ]
+        }
+      ],
+      "image_width": 640,
+      "image_height": 853
+    },
+    {
+      "id": "wall_01",
+      "title": "Wall with deep vertical and branching fissure",
+      "filename": "pic1.jpg",
+      "room": "Interior wall",
+      "surface": "Wall",
+      "damage_type": "structural_crack",
+      "observation": "Deep structural or plaster fissure branching near ceiling and extending toward baseboard, with a prior white plaster or putty patch along the middle section.",
+      "dimensions": {
+        "main_crack_length_ft": [
+          7.5,
+          8.5
+        ],
+        "branching_top_span_ft": [
+          4,
+          5
+        ],
+        "crack_gap_width_in": [
+          0.25,
+          1.0
+        ],
+        "affected_strip_length_ft": 8.0,
+        "affected_strip_width_ft": 1.5,
+        "affected_strip_area_sq_ft": 12.0
+      },
+      "boxes": [
+        {
+          "label": "Main vertical and branching crack",
+          "kind": "damage",
+          "box": [
+            55,
+            290,
+            922,
+            912
+          ]
+        },
+        {
+          "label": "Mid wall patch and exposed gap",
+          "kind": "damage",
+          "box": [
+            455,
+            365,
+            652,
+            470
+          ]
+        }
+      ],
+      "image_width": 736,
+      "image_height": 1308
+    },
+    {
+      "id": "wall_02",
+      "title": "White wall with wide branching crack and outlet",
+      "filename": "pic2.jpg",
+      "room": "Interior wall",
+      "surface": "Wall",
+      "damage_type": "branching_crack",
+      "observation": "Wide irregular multi branching crack with dark shadowing and crumbling edges, extending above and left of a wall outlet near the floor.",
+      "dimensions": {
+        "crack_network_height_ft": [
+          5.5,
+          6.5
+        ],
+        "crack_network_width_ft": [
+          5,
+          6
+        ],
+        "upper_gap_width_in": [
+          1.5,
+          3.0
+        ],
+        "affected_wall_area_sq_ft": 24.75
+      },
+      "boxes": [
+        {
+          "label": "Primary branching crack system",
+          "kind": "damage",
+          "box": [
+            148,
+            0,
+            998,
+            998
+          ]
+        },
+        {
+          "label": "Wide upper fissure pocket",
+          "kind": "damage",
+          "box": [
+            185,
+            345,
+            430,
+            825
+          ]
+        },
+        {
+          "label": "Wall outlet near base",
+          "kind": "object",
+          "box": [
+            822,
+            575,
+            938,
+            745
+          ]
+        }
+      ],
+      "image_width": 736,
+      "image_height": 1308
+    },
+    {
+      "id": "wall_03",
+      "title": "Crown molding and corner wall crack",
+      "filename": "pic3.jpg",
+      "room": "Interior wall and ceiling corner",
+      "surface": "Wall",
+      "damage_type": "joint_crack",
+      "observation": "Separation and cracking along ceiling to molding joint, through crown molding corner, continuing vertically down interior wall corner.",
+      "dimensions": {
+        "ceiling_joint_crack_length_ft": [
+          2.5,
+          3.0
+        ],
+        "crown_molding_crack_length_ft": [
+          1.5,
+          2.0
+        ],
+        "lower_wall_crack_length_ft": [
+          2.0,
+          2.5
+        ],
+        "affected_corner_area_sq_ft": 7.5
+      },
+      "boxes": [
+        {
+          "label": "Ceiling and crown molding corner crack",
+          "kind": "damage",
+          "box": [
+            0,
+            295,
+            768,
+            868
+          ]
+        },
+        {
+          "label": "Lower wall vertical crack",
+          "kind": "damage",
+          "box": [
+            762,
+            775,
+            998,
+            845
+          ]
+        }
+      ],
+      "image_width": 735,
+      "image_height": 1113
+    },
+    {
+      "id": "wall_04",
+      "title": "Stripped wall strip with deep structural crack",
+      "filename": "pic4.jpg",
+      "room": "Interior wall",
+      "surface": "Wall",
+      "damage_type": "structural_crack_and_plaster_loss",
+      "observation": "Stripped plaster or finish reveals a deep diagonal and vertical fissure widening toward ceiling molding.",
+      "dimensions": {
+        "exposed_section_height_ft": [
+          5,
+          6
+        ],
+        "exposed_section_width_ft": [
+          1.5,
+          2.0
+        ],
+        "exposed_section_area_sq_ft": [
+          7.5,
+          12
+        ],
+        "crack_length_ft": [
+          5.5,
+          6.5
+        ],
+        "crack_gap_width_in": [
+          0.5,
+          1.5
+        ]
+      },
+      "boxes": [
+        {
+          "label": "Exposed stripped wall section",
+          "kind": "damage",
+          "box": [
+            38,
+            398,
+            998,
+            885
+          ]
+        },
+        {
+          "label": "Deep structural crack",
+          "kind": "damage",
+          "box": [
+            38,
+            518,
+            998,
+            825
+          ]
+        }
+      ],
+      "image_width": 736,
+      "image_height": 981
+    },
+    {
+      "id": "wall_05",
+      "title": "Wall below window sill beside radiator",
+      "filename": "pic5.jpg",
+      "room": "Interior wall",
+      "surface": "Wall",
+      "damage_type": "stepped_crack",
+      "observation": "Stepped or diagonal drywall or plaster crack originating beneath window sill, passing the radiator top edge and angling toward baseboard.",
+      "dimensions": {
+        "crack_length_ft": [
+          4.5,
+          5.5
+        ],
+        "affected_wall_width_ft": 3.5,
+        "affected_wall_height_ft": 4.5,
+        "affected_wall_area_sq_ft": 15.75
+      },
+      "boxes": [
+        {
+          "label": "Crack below window sill to baseboard",
+          "kind": "damage",
+          "box": [
+            155,
+            112,
+            795,
+            780
+          ]
+        }
+      ],
+      "image_width": 736,
+      "image_height": 981
+    },
+    {
+      "id": "wall_06",
+      "title": "Exposed brick with crumbling render and dampness",
+      "filename": "pic6.jpg",
+      "room": "Exterior or interior masonry wall",
+      "surface": "Wall",
+      "damage_type": "plaster_spalling_and_dampness",
+      "observation": "Severe render or plaster detachment exposing cement backing and red brickwork, with green algae or moss growth and damp staining near base.",
+      "dimensions": {
+        "exposed_area_height_ft": [
+          4,
+          5
+        ],
+        "exposed_area_width_ft": [
+          2.5,
+          3
+        ],
+        "exposed_area_sq_ft": [
+          10,
+          15
+        ],
+        "lower_damp_zone_width_ft": 3.5,
+        "lower_damp_zone_height_ft": 1.5,
+        "lower_damp_zone_area_sq_ft": 5.25
+      },
+      "boxes": [
+        {
+          "label": "Spalled plaster and exposed brick area",
+          "kind": "damage",
+          "box": [
+            158,
+            0,
+            810,
+            865
+          ]
+        },
+        {
+          "label": "Lower moss moisture and peeling base",
+          "kind": "damage",
+          "box": [
+            645,
+            28,
+            998,
+            860
+          ]
+        }
+      ],
+      "image_width": 736,
+      "image_height": 1308
+    },
+    {
+      "id": "wall_07",
+      "title": "Archway and doorway wall with cracks and water stains",
+      "filename": "pic7.jpg",
+      "room": "Interior wall",
+      "surface": "Wall",
+      "damage_type": "plaster_delamination_and_water_staining",
+      "observation": "Cracking and dislodged plaster slabs across wall between doorway and archway, with yellow brown water staining.",
+      "dimensions": {
+        "plaster_zone_height_ft": [
+          5.5,
+          6.5
+        ],
+        "plaster_zone_width_ft": [
+          3,
+          3.5
+        ],
+        "plaster_zone_area_sq_ft": [
+          16.5,
+          22.75
+        ],
+        "water_stain_length_ft": 4.0,
+        "water_stain_width_ft": 2.5,
+        "water_stain_area_sq_ft": 10.0
+      },
+      "boxes": [
+        {
+          "label": "Fractured and detaching plaster zone",
+          "kind": "damage",
+          "box": [
+            45,
+            195,
+            998,
+            998
+          ]
+        },
+        {
+          "label": "Water staining and ring marks",
+          "kind": "damage",
+          "box": [
+            255,
+            285,
+            818,
+            720
+          ]
+        }
+      ],
+      "image_width": 720,
+      "image_height": 1280
+    },
+    {
+      "id": "wall_08",
+      "title": "Deep jagged crack adjacent to door or window frame",
+      "filename": "pic8.jpg",
+      "room": "Interior wall",
+      "surface": "Wall",
+      "damage_type": "jagged_crack",
+      "observation": "Deep jagged vertical and branching crack beside white frame, with crumbling edges and dark depth.",
+      "dimensions": {
+        "visible_crack_length_ft": [
+          7,
+          8
+        ],
+        "crack_gap_width_in": [
+          0.5,
+          2.0
+        ],
+        "affected_wall_height_ft": 7.5,
+        "affected_wall_width_ft": 1.5,
+        "affected_wall_area_sq_ft": 11.25
+      },
+      "boxes": [
+        {
+          "label": "Main jagged crack",
+          "kind": "damage",
+          "box": [
+            0,
+            125,
+            998,
+            565
+          ]
+        },
+        {
+          "label": "RESIDENTIAL ENGINEERING",
+          "kind": "ocr",
+          "box": [
+            105,
+            85,
+            192,
+            265
+          ]
+        }
+      ],
+      "image_width": 736,
+      "image_height": 1104
+    },
+    {
+      "id": "wall_09",
+      "title": "Upper corner wall crack with small hole",
+      "filename": "pic9.jpg",
+      "room": "Interior wall and ceiling corner",
+      "surface": "Wall",
+      "damage_type": "crack_and_spalling",
+      "observation": "Arched or diagonal crack near ceiling cornice continuing vertically down wall, with localized hole or spall.",
+      "dimensions": {
+        "upper_crack_length_ft": [
+          3.5,
+          4.5
+        ],
+        "vertical_crack_length_ft": [
+          5.5,
+          6.5
+        ],
+        "hole_diameter_in": [
+          4,
+          6
+        ],
+        "affected_wall_length_ft": 5.0,
+        "affected_wall_height_ft": 6.0,
+        "affected_wall_area_sq_ft": 30.0
+      },
+      "boxes": [
+        {
+          "label": "Upper arched crack to vertical crack",
+          "kind": "damage",
+          "box": [
+            182,
+            130,
+            965,
+            845
+          ]
+        },
+        {
+          "label": "Localized hole and impact spall",
+          "kind": "damage",
+          "box": [
+            252,
+            625,
+            345,
+            745
+          ]
+        }
+      ],
+      "image_width": 736,
+      "image_height": 1310
+    },
+    {
+      "id": "wall_10",
+      "title": "Exterior wall with algae growth and spalling",
+      "filename": "pic10.jpg",
+      "room": "Exterior wall",
+      "surface": "Wall",
+      "damage_type": "exterior_moisture_and_spalling",
+      "observation": "Extensive exterior moisture or algae streaking with flaking exterior coating and spalling render or masonry along left corner and lower edge.",
+      "dimensions": {
+        "wall_height_ft": [
+          14,
+          16
+        ],
+        "wall_width_ft": [
+          10,
+          12
+        ],
+        "total_wall_area_sq_ft": [
+          140,
+          192
+        ],
+        "heavy_spalling_height_ft": 12.0,
+        "heavy_spalling_width_ft": 2.5,
+        "heavy_spalling_area_sq_ft": 30.0,
+        "algae_peeling_area_sq_ft": [
+          90,
+          130
+        ]
+      },
+      "boxes": [
+        {
+          "label": "Left corner and spalling render masonry",
+          "kind": "damage",
+          "box": [
+            128,
+            132,
+            928,
+            515
+          ]
+        },
+        {
+          "label": "Green algae streaks and peeling exterior wall",
+          "kind": "damage",
+          "box": [
+            0,
+            132,
+            998,
+            825
+          ]
+        }
+      ],
+      "image_width": 736,
+      "image_height": 1104
+    },
+    {
+      "id": "nameplate_01",
+      "title": "Feit Electric LED Utility Bulbs (4 Pack) nameplate",
+      "filename": "nameplate_pic1.jpg",
+      "capture_type": "nameplate",
+      "room": "Appliance inspection",
+      "surface": "Appliance nameplate",
+      "damage_type": "not_applicable",
+      "observation": "Nameplate reference transcription for Feit Electric LED Utility Bulbs (4 Pack).",
+      "dimensions": {},
+      "boxes": [],
+      "fields": {
+        "manufacturer": "Feit Electric",
+        "product_type": "LED Utility Bulbs (4 Pack)",
+        "model_number": "ADJ8000/5K/MM/LED",
+        "serial_number": "1 00 17801 15223 1",
+        "power": "65 W",
+        "voltage": "120 V",
+        "color_temperature": "5000K",
+        "base_type": "Standard",
+        "item_number": "15223",
+        "short_code": "256-24-37"
+      },
+      "image_width": 736,
+      "image_height": 981
+    },
+    {
+      "id": "nameplate_02",
+      "title": "Electrolux / Frigidaire Dehumidifier nameplate",
+      "filename": "nameplate_pic2.jpg",
+      "capture_type": "nameplate",
+      "room": "Appliance inspection",
+      "surface": "Appliance nameplate",
+      "damage_type": "not_applicable",
+      "observation": "Nameplate reference transcription for Electrolux / Frigidaire Dehumidifier.",
+      "dimensions": {},
+      "boxes": [],
+      "fields": {
+        "manufacturer": "Electrolux / Frigidaire",
+        "product_type": "Dehumidifier",
+        "model_number": "FFAD5033W1",
+        "serial_number": "KN95001949",
+        "service_model": "FFAD5033W10",
+        "manufacture_date": "12/19",
+        "capacity": "50 pints/day",
+        "IEF": "1.8 L/kWh",
+        "electrical": "115V, 60Hz, 1PH, 7.8A",
+        "refrigerant": "R410A, 0.205 kg",
+        "design_pressure": "Low 300 PSIG / High 540 PSIG",
+        "origin": "China",
+        "protection": "IPX1"
+      },
+      "image_width": 736,
+      "image_height": 981
+    },
+    {
+      "id": "nameplate_03",
+      "title": "LG Portable Room Air Conditioner nameplate",
+      "filename": "nameplate_pic3.jpg",
+      "capture_type": "nameplate",
+      "room": "Appliance inspection",
+      "surface": "Appliance nameplate",
+      "damage_type": "not_applicable",
+      "observation": "Nameplate reference transcription for LG Portable Room Air Conditioner.",
+      "dimensions": {},
+      "boxes": [],
+      "fields": {
+        "manufacturer": "LG",
+        "product_type": "Portable Room Air Conditioner",
+        "model_number": "LP0721WSR",
+        "serial_number": "012CTTB08353",
+        "cooling_capacity": "7000 Btu/h",
+        "CEER": "6.90 Btu/h·W",
+        "electrical": "115V, 60Hz, 1 Phase, 970W, 8.6A",
+        "rated_current": "10.9A",
+        "refrigerant": "R32, 10.9 oz",
+        "design_pressure": "High 900 PSIG / Low 470 PSIG"
+      },
+      "image_width": 236,
+      "image_height": 317
+    },
+    {
+      "id": "nameplate_04",
+      "title": "GE Appliances Household Microwave Oven nameplate",
+      "filename": "nameplate_pic4.jpg",
+      "capture_type": "nameplate",
+      "room": "Appliance inspection",
+      "surface": "Appliance nameplate",
+      "damage_type": "not_applicable",
+      "observation": "Nameplate reference transcription for GE Appliances Household Microwave Oven.",
+      "dimensions": {},
+      "boxes": [],
+      "fields": {
+        "manufacturer": "GE Appliances",
+        "product_type": "Household Microwave Oven",
+        "model_number": "PEB7226SF2SS",
+        "serial_number": "HG200312N",
+        "manufacture_date": "May 2016",
+        "origin": "Assembled in China",
+        "warranty": "Limited 1 Year"
+      },
+      "image_width": 736,
+      "image_height": 981
+    },
+    {
+      "id": "nameplate_05",
+      "title": "Panasonic Automotive Car Audio / Head Unit nameplate",
+      "filename": "nameplate_pic5.jpg",
+      "capture_type": "nameplate",
+      "room": "Appliance inspection",
+      "surface": "Appliance nameplate",
+      "damage_type": "not_applicable",
+      "observation": "Nameplate reference transcription for Panasonic Automotive Car Audio / Head Unit.",
+      "dimensions": {},
+      "boxes": [],
+      "fields": {
+        "manufacturer": "Panasonic Automotive",
+        "product_type": "Car Audio / Head Unit",
+        "model_number": "15884146",
+        "serial_number": "104073",
+        "reference_number": "CQ-ZG0562ZC",
+        "manufacture_date": "December 2005",
+        "electrical": "12V DC, negative ground",
+        "speaker_impedance": "4Ω",
+        "FM_antenna_input": "75 Ohm",
+        "origin": "Assembled in U.S.A.",
+        "compliance": "FCC Part 15; DHHS 21 CFR Subchapter J"
+      },
+      "image_width": 736,
+      "image_height": 552
+    },
+    {
+      "id": "nameplate_06",
+      "title": "Haier Monobloc Air to Water Heat Pump nameplate",
+      "filename": "nameplate_pic6.jpg",
+      "capture_type": "nameplate",
+      "room": "Appliance inspection",
+      "surface": "Appliance nameplate",
+      "damage_type": "not_applicable",
+      "observation": "Nameplate reference transcription for Haier Monobloc Air to Water Heat Pump.",
+      "dimensions": {},
+      "boxes": [],
+      "fields": {
+        "manufacturer": "Haier",
+        "product_type": "Monobloc Air to Water Heat Pump",
+        "model_number": "AU082FYCRA(HW)",
+        "serial_number": "not_visible",
+        "label_code": "0150531737",
+        "manufacture_date": "202206",
+        "origin": "China",
+        "capacity": "Cooling 7.0 kW; Heating 7.8 kW",
+        "electrical": "1PH, 220–240V, 50/60Hz, Max 4900W / 21.3A",
+        "refrigerant": "R32, 1.15 kg, GWP 675",
+        "weight": "87 kg",
+        "protection": "IPX4"
+      },
+      "image_width": 735,
+      "image_height": 983
+    },
+    {
+      "id": "nameplate_07",
+      "title": "LG Household Refrigerator nameplate",
+      "filename": "nameplate_pic7.jpg",
+      "capture_type": "nameplate",
+      "room": "Appliance inspection",
+      "surface": "Appliance nameplate",
+      "damage_type": "not_applicable",
+      "observation": "Nameplate reference transcription for LG Household Refrigerator.",
+      "dimensions": {},
+      "boxes": [],
+      "fields": {
+        "manufacturer": "LG",
+        "product_type": "Household Refrigerator",
+        "model_number": "LFC25770SB",
+        "serial_number": "808KRXD00306",
+        "manufacture_year": "2008",
+        "electrical": "115V, 60Hz, 1PH, 6.1A",
+        "refrigerant": "R134a, 4.59 oz",
+        "design_pressure": "High 400 PSI Ga / Low 140 PSI Ga",
+        "dimensions": "35¾ W × 34¼ D × 69¾ H",
+        "origin": "Korea"
+      },
+      "image_width": 736,
+      "image_height": 736
+    },
+    {
+      "id": "nameplate_08",
+      "title": "Whirlpool Household Refrigerator nameplate",
+      "filename": "nameplate_pic8.jpg",
+      "capture_type": "nameplate",
+      "room": "Appliance inspection",
+      "surface": "Appliance nameplate",
+      "damage_type": "not_applicable",
+      "observation": "Nameplate reference transcription for Whirlpool Household Refrigerator.",
+      "dimensions": {},
+      "boxes": [],
+      "fields": {
+        "manufacturer": "Whirlpool",
+        "product_type": "Household Refrigerator",
+        "model_number": "WRF767SDEM01",
+        "serial_number": "K73910658",
+        "type": "BMA29FD",
+        "electrical": "115VAC, 60Hz, 7.10A",
+        "refrigerant": "R134a, 5.50 oz",
+        "clearance": "Top ½ in, Back 1 in",
+        "origin": "Assembled in U.S.A."
+      },
+      "image_width": 736,
+      "image_height": 625
+    },
+    {
+      "id": "nameplate_09",
+      "title": "O General / Fujitsu General Split Air Conditioner nameplate",
+      "filename": "nameplate_pic9.jpg",
+      "capture_type": "nameplate",
+      "room": "Appliance inspection",
+      "surface": "Appliance nameplate",
+      "damage_type": "not_applicable",
+      "observation": "Nameplate reference transcription for O General / Fujitsu General Split Air Conditioner.",
+      "dimensions": {},
+      "boxes": [],
+      "fields": {
+        "manufacturer": "O General / Fujitsu General",
+        "product_type": "Split Air Conditioner",
+        "model_number": "AXGT24AATH",
+        "serial_number": "T021688",
+        "cooling_capacity": "6.10 kW",
+        "electrical": "230V, 50Hz, 1PH, Input 2.36 kW, 10.5A, Max 14A",
+        "refrigerant": "R22, 1.10 kg",
+        "max_pressure": "Suction 0.8 MPa / Discharge 3.5 MPa",
+        "protection": "Indoor IPX0 / Outdoor IPX4",
+        "origin": "Thailand"
+      },
+      "image_width": 736,
+      "image_height": 1646
+    },
+    {
+      "id": "nameplate_10",
+      "title": "LG French Door Refrigerator nameplate",
+      "filename": "nameplate_pic10.jpg",
+      "capture_type": "nameplate",
+      "room": "Appliance inspection",
+      "surface": "Appliance nameplate",
+      "damage_type": "not_applicable",
+      "observation": "Nameplate reference transcription for LG French Door Refrigerator.",
+      "dimensions": {},
+      "boxes": [],
+      "fields": {
+        "manufacturer": "LG",
+        "product_type": "French Door Refrigerator",
+        "model_number": "LMXS30776S/00",
+        "serial_number": "410KRXD0R682",
+        "product_code": "GR-J31GHSJM.ASTCNA0",
+        "production_date": "2014.10",
+        "electrical": "115V, 60Hz, 2.1A, Defrost 525W",
+        "refrigerant": "R134a, 4.76 oz",
+        "dimensions": "35¾ W × 38⅛ D × 70¼ H",
+        "origin": "Korea"
+      },
+      "image_width": 736,
+      "image_height": 981
+    },
+    {
+      "id": "inspection_01",
+      "title": "Garage with tools and conduit work",
+      "filename": "pic1_3.jpg",
+      "room": "Garage",
+      "surface": "Concrete floor and electrical work area",
+      "damage_type": "no_visible_damage_active_construction",
+      "observation": "No visible structural or water damage to the walls, ceiling, or garage door. Active construction and electrical work with scattered tools, conduit pipes, and debris on the concrete floor. Minor scuffing and debris along the floor.",
+      "dimensions": {
+        "active_work_floor_zone_length_ft": [
+          10,
+          12
+        ],
+        "active_work_floor_zone_width_ft": [
+          8,
+          10
+        ],
+        "active_work_floor_zone_area_sq_ft": [
+          80,
+          120
+        ]
+      },
+      "boxes": [
+        {
+          "label": "Floor debris and tool spread zone",
+          "kind": "damage",
+          "box": [
+            655,
+            220,
+            998,
+            998
+          ]
+        },
+        {
+          "label": "Vector, upside down on left shelf",
+          "kind": "ocr",
+          "text": "Vector",
+          "box": [
+            570,
+            12,
+            602,
+            85
+          ]
+        }
+      ],
+      "image_width": 736,
+      "image_height": 981
+    },
+    {
+      "id": "inspection_02",
+      "title": "Utility alcove with water heater",
+      "filename": "pic2_3.jpg",
+      "room": "Utility alcove",
+      "surface": "Concrete floor",
+      "damage_type": "minor_floor_dampness",
+      "observation": "Minor floor dampness and puddling near the lower wall base and in front of the alcove. No major structural or wall or ceiling damage is visible.",
+      "dimensions": {
+        "damp_floor_patch_length_ft": [
+          4.0,
+          5.0
+        ],
+        "damp_floor_patch_width_ft": [
+          3.0,
+          4.0
+        ],
+        "damp_floor_patch_area_sq_ft": [
+          12,
+          20
+        ]
+      },
+      "boxes": [
+        {
+          "label": "Damp and stained concrete floor zone",
+          "kind": "damage",
+          "box": [
+            885,
+            280,
+            998,
+            665
+          ]
+        },
+        {
+          "label": "Bradford White water heater label",
+          "kind": "ocr",
+          "text": "BRADFORD WHITE",
+          "box": [
+            348,
+            488,
+            378,
+            542
+          ]
+        }
+      ],
+      "image_width": 736,
+      "image_height": 981
+    },
+    {
+      "id": "inspection_03",
+      "title": "Interior wall with battery and inverter installation",
+      "filename": "pic3_3.jpg",
+      "room": "Utility room",
+      "surface": "Wall and floor installation area",
+      "damage_type": "no_visible_damage_electrical_installation",
+      "observation": "No structural or water damage is visible. Unfinished or in progress electrical wiring with loose red cables and minor floor debris and tools during ESS battery and inverter installation.",
+      "dimensions": {
+        "loose_wiring_zone_height_ft": [
+          5.5,
+          6.5
+        ],
+        "loose_wiring_zone_width_ft": [
+          3.5,
+          4.5
+        ],
+        "loose_wiring_zone_area_sq_ft": [
+          19,
+          29
+        ]
+      },
+      "boxes": [
+        {
+          "label": "Loose red wiring",
+          "kind": "damage",
+          "box": [
+            0,
+            625,
+            425,
+            825
+          ]
+        },
+        {
+          "label": "Floor debris and tools, bottom right",
+          "kind": "damage",
+          "box": [
+            895,
+            868,
+            998,
+            998
+          ]
+        },
+        {
+          "label": "ESS Battery 51.2V 314Ah",
+          "kind": "ocr",
+          "text": "ESS Battery 51.2V 314Ah",
+          "box": [
+            858,
+            428,
+            870,
+            572
+          ]
+        }
+      ],
+      "image_width": 736,
+      "image_height": 981
+    },
+    {
+      "id": "inspection_04",
+      "title": "Kitchen dining room with peeling ceiling and cabinet removal",
+      "filename": "pic4_3.jpg",
+      "room": "Kitchen and dining room",
+      "surface": "Ceiling, lower wall and floor",
+      "damage_type": "ceiling_peeling_and_removed_cabinetry",
+      "observation": "Extensive ceiling paint peeling and flaking, likely from moisture, humidity, or age. Missing lower wall finish or drywall behind removed cabinetry, with detached or rearranged kitchen cabinets and floor debris.",
+      "dimensions": {
+        "ceiling_peeling_length_ft": [
+          12,
+          14
+        ],
+        "ceiling_peeling_width_ft": [
+          10,
+          12
+        ],
+        "ceiling_peeling_area_sq_ft": [
+          120,
+          168
+        ],
+        "exposed_lower_wall_width_ft": 4.0,
+        "exposed_lower_wall_height_ft": 3.0,
+        "exposed_lower_wall_area_sq_ft": 12.0,
+        "floor_debris_tile_wear_length_ft": 12.0,
+        "floor_debris_tile_wear_width_ft": 10.0,
+        "floor_debris_tile_wear_area_sq_ft": 120.0
+      },
+      "boxes": [
+        {
+          "label": "Ceiling peeling paint",
+          "kind": "damage",
+          "box": [
+            0,
+            145,
+            285,
+            835
+          ]
+        },
+        {
+          "label": "Exposed lower wall behind cabinets, left",
+          "kind": "damage",
+          "box": [
+            438,
+            52,
+            568,
+            245
+          ]
+        },
+        {
+          "label": "Displaced or uninstalled cabinets and debris",
+          "kind": "damage",
+          "box": [
+            422,
+            345,
+            652,
+            875
+          ]
+        }
+      ],
+      "image_width": 736,
+      "image_height": 1308
+    },
+    {
+      "id": "inspection_05",
+      "title": "Flooded kitchen and hallway",
+      "filename": "pic5_3.jpg",
+      "room": "Kitchen and hallway",
+      "surface": "Floor, lower cabinets and appliances",
+      "damage_type": "severe_indoor_flooding",
+      "observation": "Severe standing floodwater covers the kitchen, hallway, and adjacent rooms, submerging lower cabinetry, appliances, and baseboards. Coverage extends further into adjoining rooms.",
+      "dimensions": {
+        "standing_water_length_ft": [
+          16,
+          20
+        ],
+        "standing_water_width_ft": [
+          8,
+          10
+        ],
+        "standing_water_area_sq_ft": [
+          128,
+          200
+        ]
+      },
+      "boxes": [
+        {
+          "label": "Standing floodwater across floor",
+          "kind": "damage",
+          "box": [
+            345,
+            0,
+            998,
+            998
+          ]
+        },
+        {
+          "label": "Submerged base of refrigerator and cabinets",
+          "kind": "damage",
+          "box": [
+            345,
+            225,
+            635,
+            855
+          ]
+        },
+        {
+          "label": "40 PACK / Ozarka water pack on counter",
+          "kind": "ocr",
+          "text": "40 PACK / Ozarka",
+          "box": [
+            192,
+            662,
+            222,
+            800
+          ]
+        }
+      ],
+      "image_width": 736,
+      "image_height": 1308
+    },
+    {
+      "id": "inspection_06",
+      "title": "Flooded floor around stove and drain access opening",
+      "filename": "pic6_3.jpg",
+      "room": "Kitchen and utility area",
+      "surface": "Floor and rectangular opening",
+      "damage_type": "standing_water_and_floor_opening",
+      "observation": "Standing water and pooling across the kitchen or utility floor around a rectangular floor opening or drain and beneath appliances.",
+      "dimensions": {
+        "standing_water_length_ft": [
+          8.0,
+          10.0
+        ],
+        "standing_water_width_ft": [
+          6.0,
+          8.0
+        ],
+        "standing_water_area_sq_ft": [
+          48,
+          80
+        ],
+        "rectangular_floor_opening_length_ft": 2.0,
+        "rectangular_floor_opening_width_ft": 2.5,
+        "rectangular_floor_opening_area_sq_ft": 5.0
+      },
+      "boxes": [
+        {
+          "label": "Standing water and wet floor zone",
+          "kind": "damage",
+          "box": [
+            288,
+            0,
+            998,
+            998
+          ]
+        },
+        {
+          "label": "Rectangular floor opening or sump area",
+          "kind": "damage",
+          "box": [
+            452,
+            315,
+            610,
+            815
+          ]
+        },
+        {
+          "label": "Raid spray can",
+          "kind": "ocr",
+          "text": "Raid",
+          "box": [
+            22,
+            950,
+            62,
+            985
+          ]
+        }
+      ],
+      "image_width": 736,
+      "image_height": 981
+    },
+    {
+      "id": "inspection_07",
+      "title": "Garage utility room with water leak and wall patch",
+      "filename": "pic7_3.jpg",
+      "room": "Garage and utility room",
+      "surface": "Concrete floor and wall around copper pipes",
+      "damage_type": "floor_water_leak_and_wall_patch",
+      "observation": "Water leak or puddle on the concrete floor in front of the water heater and utility piping, plus a fresh white drywall or plaster patch around exposed copper pipes on the wall.",
+      "dimensions": {
+        "floor_water_puddle_length_ft": [
+          6.0,
+          7.0
+        ],
+        "floor_water_puddle_width_ft": [
+          3.0,
+          4.0
+        ],
+        "floor_water_puddle_area_sq_ft": [
+          18,
+          28
+        ],
+        "white_wall_patch_width_ft": 2.5,
+        "white_wall_patch_height_ft": 3.0,
+        "white_wall_patch_area_sq_ft": 7.5
+      },
+      "boxes": [
+        {
+          "label": "Floor water puddle",
+          "kind": "damage",
+          "box": [
+            585,
+            412,
+            955,
+            882
+          ]
+        },
+        {
+          "label": "White wall patch around copper pipes",
+          "kind": "damage",
+          "box": [
+            355,
+            468,
+            512,
+            608
+          ]
+        }
+      ],
+      "image_width": 736,
+      "image_height": 981
+    },
+    {
+      "id": "inspection_08",
+      "title": "Deeply flooded kitchen and living dining area",
+      "filename": "pic8_3.jpg",
+      "room": "Kitchen and living dining area",
+      "surface": "Floor, lower cabinets and built in ovens",
+      "damage_type": "severe_indoor_flooding",
+      "observation": "Severe indoor flooding with deep standing water across the kitchen and living or dining spaces, submerging lower cabinets, ovens, and furniture legs.",
+      "dimensions": {
+        "standing_water_length_ft": [
+          22,
+          28
+        ],
+        "standing_water_width_ft": [
+          12,
+          15
+        ],
+        "standing_water_area_sq_ft": [
+          264,
+          420
+        ]
+      },
+      "boxes": [
+        {
+          "label": "Deep standing floodwater",
+          "kind": "damage",
+          "box": [
+            285,
+            0,
+            998,
+            998
+          ]
+        },
+        {
+          "label": "Submerged lower cabinets and built in ovens",
+          "kind": "damage",
+          "box": [
+            332,
+            0,
+            775,
+            998
+          ]
+        },
+        {
+          "label": "Ham, Hamilton Beach box on counter",
+          "kind": "ocr",
+          "text": "Ham (Hamilton Beach)",
+          "box": [
+            245,
+            845,
+            268,
+            895
+          ]
+        }
+      ],
+      "image_width": 736,
+      "image_height": 977
+    },
+    {
+      "id": "inspection_09",
+      "title": "Flooded laundry utility room",
+      "filename": "pic9_3.jpg",
+      "room": "Laundry and utility room",
+      "surface": "Floor around washing machine and sink cabinet",
+      "damage_type": "standing_water_flooding",
+      "observation": "Standing floodwater covers the laundry room floor around the washing machine, sink cabinet, shelving, and furniture.",
+      "dimensions": {
+        "standing_water_length_ft": [
+          10,
+          12
+        ],
+        "standing_water_width_ft": [
+          8,
+          10
+        ],
+        "standing_water_area_sq_ft": [
+          80,
+          120
+        ]
+      },
+      "boxes": [
+        {
+          "label": "Standing floodwater across floor",
+          "kind": "damage",
+          "box": [
+            485,
+            0,
+            998,
+            998
+          ]
+        }
+      ],
+      "image_width": 235,
+      "image_height": 313
+    },
+    {
+      "id": "inspection_10",
+      "title": "Flooded bar pub restaurant floor",
+      "filename": "pic10_3.jpg",
+      "room": "Bar, pub or restaurant",
+      "surface": "Wood or laminate floor",
+      "damage_type": "widespread_indoor_flooding",
+      "observation": "Widespread standing water across a large wood or laminate bar or dining floor, with reflections of lights and bar fixtures across the flooded surface.",
+      "dimensions": {
+        "standing_water_length_ft": [
+          20,
+          25
+        ],
+        "standing_water_width_ft": [
+          15,
+          20
+        ],
+        "standing_water_area_sq_ft": [
+          300,
+          500
+        ]
+      },
+      "boxes": [
+        {
+          "label": "Standing floodwater across floor",
+          "kind": "damage",
+          "box": [
+            388,
+            0,
+            998,
+            998
+          ]
+        },
+        {
+          "label": "SUMMIT sign",
+          "kind": "ocr",
+          "text": "SUMMIT",
+          "box": [
+            12,
+            152,
+            52,
+            205
+          ]
+        },
+        {
+          "label": "TIME FREMO sign",
+          "kind": "ocr",
+          "text": "TIME FREMO",
+          "box": [
+            225,
+            702,
+            250,
+            822
+          ]
+        }
+      ],
+      "image_width": 600,
+      "image_height": 800
+    }
+  ],
+  "unmatched_files": [
+    {
+      "filename": "WhatsApp Image 2026-11-23 at 1.22.10 PM (2).jpeg",
+      "reason": "The uploaded folder contains 11 JPEG images, but the supplied annotations describe 10. This file has no matching annotation and is not assigned invented damage labels or boxes."
+    }
+  ],
+  "reference_confidence_note": "Reference confidence values are configured for user supplied annotations and are not measured model accuracy. 40 annotated reference images are available."
+}

@@ -1,0 +1,118 @@
+{
+ "n": 41,
+ "classes": {
+  "stain": 15,
+  "standing_water": 8,
+  "none": 10,
+  "crack": 8
+ },
+ "baseline": 0.366,
+ "loo_accuracy": 0.634,
+ "tree_conf_right": 0.747,
+ "tree_conf_wrong": 0.799,
+ "precision_by_class": {
+  "crack": 0.667,
+  "none": 0.6,
+  "stain": 0.619,
+  "standing_water": 0.667
+ },
+ "confusion": {
+  "stain": {
+   "stain": 13,
+   "crack": 1,
+   "standing_water": 1
+  },
+  "standing_water": {
+   "stain": 2,
+   "standing_water": 4,
+   "none": 2
+  },
+  "none": {
+   "stain": 5,
+   "none": 3,
+   "crack": 2
+  },
+  "crack": {
+   "crack": 6,
+   "standing_water": 1,
+   "stain": 1
+  }
+ },
+ "errors": [
+  [
+   14,
+   "stain",
+   "crack"
+  ],
+  [
+   20,
+   "standing_water",
+   "stain"
+  ],
+  [
+   21,
+   "none",
+   "stain"
+  ],
+  [
+   23,
+   "none",
+   "stain"
+  ],
+  [
+   24,
+   "none",
+   "stain"
+  ],
+  [
+   27,
+   "standing_water",
+   "stain"
+  ],
+  [
+   29,
+   "standing_water",
+   "none"
+  ],
+  [
+   32,
+   "none",
+   "crack"
+  ],
+  [
+   34,
+   "none",
+   "stain"
+  ],
+  [
+   35,
+   "standing_water",
+   "none"
+  ],
+  [
+   36,
+   "none",
+   "stain"
+  ],
+  [
+   37,
+   "stain",
+   "standing_water"
+  ],
+  [
+   40,
+   "none",
+   "crack"
+  ],
+  [
+   43,
+   "crack",
+   "standing_water"
+  ],
+  [
+   45,
+   "crack",
+   "stain"
+  ]
+ ]
+}

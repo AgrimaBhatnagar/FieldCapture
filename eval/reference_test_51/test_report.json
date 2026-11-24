@@ -1,0 +1,242 @@
+{
+  "project": "fieldcapture-repo-6.zip",
+  "test_images": 51,
+  "image_groups": {
+    "nameplate": 10,
+    "extra": 11,
+    "home": 10,
+    "lowlight": 10,
+    "wall": 10
+  },
+  "image_source_note": "Previously uploaded reference image collections, not original Meta glasses captures.",
+  "nameplate": {
+    "mode": "fresh fast OCR run on all 10 nameplate images",
+    "fields": {
+      "make": {
+        "n": 10,
+        "correct": 8,
+        "accuracy": 0.8
+      },
+      "model": {
+        "n": 10,
+        "correct": 7,
+        "accuracy": 0.7
+      },
+      "serial": {
+        "n": 6,
+        "correct": 5,
+        "accuracy": 0.833
+      },
+      "manufacture_date": {
+        "n": 4,
+        "correct": 4,
+        "accuracy": 1.0
+      }
+    },
+    "exact_fields": 24,
+    "total_fields": 30,
+    "micro_accuracy": 0.8,
+    "cached_full_mode_reference": {
+      "make": "10/10",
+      "model": "7/10",
+      "serial": "4/6",
+      "manufacture_date": "3/4",
+      "exact_fields": "24/30"
+    }
+  },
+  "damage": {
+    "method": "41 image leave one out cross validation, depth 3 decision tree",
+    "samples": 41,
+    "accuracy": 0.6585365853658537,
+    "majority_baseline": 0.36585365853658536,
+    "balanced_accuracy": 0.64375,
+    "class_report": {
+      "crack": {
+        "precision": 0.6363636363636364,
+        "recall": 0.875,
+        "f1-score": 0.7368421052631579,
+        "support": 8.0
+      },
+      "none": {
+        "precision": 0.6666666666666666,
+        "recall": 0.4,
+        "f1-score": 0.5,
+        "support": 10.0
+      },
+      "stain": {
+        "precision": 0.631578947368421,
+        "recall": 0.8,
+        "f1-score": 0.7058823529411765,
+        "support": 15.0
+      },
+      "standing_water": {
+        "precision": 0.8,
+        "recall": 0.5,
+        "f1-score": 0.6153846153846154,
+        "support": 8.0
+      },
+      "accuracy": 0.6585365853658537,
+      "macro avg": {
+        "precision": 0.683652312599681,
+        "recall": 0.64375,
+        "f1-score": 0.6395272683972375,
+        "support": 41.0
+      },
+      "weighted avg": {
+        "precision": 0.6739331699537091,
+        "recall": 0.6585365853658537,
+        "f1-score": 0.6440499770560936,
+        "support": 41.0
+      }
+    },
+    "confusion_matrix_labels": [
+      "crack",
+      "none",
+      "stain",
+      "standing_water"
+    ],
+    "confusion_matrix": [
+      [
+        7,
+        0,
+        1,
+        0
+      ],
+      [
+        2,
+        4,
+        4,
+        0
+      ],
+      [
+        2,
+        0,
+        12,
+        1
+      ],
+      [
+        0,
+        2,
+        2,
+        4
+      ]
+    ],
+    "class_counts": {
+      "stain": 15,
+      "standing_water": 8,
+      "none": 10,
+      "crack": 8
+    },
+    "errors": [
+      {
+        "image_index": 15,
+        "image": "WhatsApp Image 2026-11-23 at 1.22.09 PM (2).jpeg",
+        "truth": "stain",
+        "prediction": "crack"
+      },
+      {
+        "image_index": 21,
+        "image": "WhatsApp Image 2026-11-23 at 1.22.10 PM.jpeg",
+        "truth": "standing_water",
+        "prediction": "stain"
+      },
+      {
+        "image_index": 22,
+        "image": "pic1.jpg",
+        "truth": "none",
+        "prediction": "stain"
+      },
+      {
+        "image_index": 24,
+        "image": "pic2.jpg",
+        "truth": "none",
+        "prediction": "stain"
+      },
+      {
+        "image_index": 25,
+        "image": "pic3.jpg",
+        "truth": "none",
+        "prediction": "stain"
+      },
+      {
+        "image_index": 28,
+        "image": "pic6.jpg",
+        "truth": "standing_water",
+        "prediction": "stain"
+      },
+      {
+        "image_index": 30,
+        "image": "pic8.jpg",
+        "truth": "standing_water",
+        "prediction": "none"
+      },
+      {
+        "image_index": 33,
+        "image": "pic10.jpg",
+        "truth": "none",
+        "prediction": "crack"
+      },
+      {
+        "image_index": 35,
+        "image": "pic3.jpg",
+        "truth": "none",
+        "prediction": "stain"
+      },
+      {
+        "image_index": 36,
+        "image": "pic4.jpg",
+        "truth": "standing_water",
+        "prediction": "none"
+      },
+      {
+        "image_index": 38,
+        "image": "pic6.jpg",
+        "truth": "stain",
+        "prediction": "standing_water"
+      },
+      {
+        "image_index": 41,
+        "image": "pic9.jpg",
+        "truth": "none",
+        "prediction": "crack"
+      },
+      {
+        "image_index": 45,
+        "image": "pic3.jpg",
+        "truth": "stain",
+        "prediction": "crack"
+      },
+      {
+        "image_index": 46,
+        "image": "pic4.jpg",
+        "truth": "crack",
+        "prediction": "stain"
+      }
+    ]
+  },
+  "quality_gate": {
+    "pass_by_group": {
+      "nameplate": "10/10",
+      "extra": "11/11",
+      "home": "10/10",
+      "lowlight": "5/10",
+      "wall": "10/10"
+    },
+    "total_pass": 46,
+    "total": 51,
+    "rejected_low_light_images": [
+      "pic1.jpg",
+      "pic10.jpg",
+      "pic2.jpg",
+      "pic7.jpg",
+      "pic9.jpg"
+    ]
+  },
+  "limitations": [
+    "Ground truth labels were generated in an earlier review and were not independently double checked.",
+    "Images are a development/reference set, not a held out real-world dataset.",
+    "Damage classifier result is cross validated on only 41 examples and is not production accuracy.",
+    "Nameplate OCR was freshly rerun in fast mode; full mode values are cached results from the project's prior evaluation.",
+    "No Meta glasses capture or device integration was tested."
+  ]
+}

@@ -1,0 +1,4 @@
+Command: python -m unittest discover -s tests
+Result: 56 tests passed
+Runtime: approximately 5.8 seconds
+Warnings: existing sklearn pickle version mismatch and resource warnings are emitted; tests still pass.

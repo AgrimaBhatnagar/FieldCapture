@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FieldCapture</title>
+<style>
+:root{--bg:#e7e9e5;--panel:#f6f7f4;--ink:#17262b;--mute:#5b6b6f;--line:#c5cbc6;--cap:#f2c200;--ok:#0e6b5f;--bad:#b3261e;color-scheme:light}
+@media (prefers-color-scheme:dark){:root{--bg:#101a1d;--panel:#18262a;--ink:#e6ece9;--mute:#93a5a8;--line:#2d4247;--ok:#4fc7b4;--bad:#ff8a80;color-scheme:dark}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+header{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;padding:12px 18px;border-bottom:1px solid var(--ink)}
+h1{margin:0;font-size:22px}h2{margin:0 0 8px;font-size:16px}.note{font-size:13px;color:var(--mute)}
+.pill{display:inline-block;padding:3px 10px;border:1px solid var(--ink);border-radius:99px;font-weight:700;font-size:14px}
+.pill.live{background:var(--ok);color:#fff;border-color:var(--ok)}.pill.dropped,.pill.stopped,.pill.off{background:var(--bad);color:#fff;border-color:var(--bad)}.pill.paused{background:var(--cap);color:#17262b}
+main{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:14px;padding:14px 18px;max-width:1400px;margin:auto}
+@media(max-width:900px){main{grid-template-columns:1fr;padding:10px}}
+.panel{background:var(--panel);border:1px solid var(--ink);border-radius:6px;padding:12px}.col{display:grid;gap:14px;align-content:start}
+.stage{position:relative;background:#000;border-radius:4px;overflow:hidden;aspect-ratio:4/3}video,#still{width:100%;height:100%;object-fit:contain;display:block;background:#000}#stageMarks{position:absolute;pointer-events:none;display:none}#stageMarks svg{width:100%;height:100%;overflow:visible}
+#still{display:none}.empty{position:absolute;inset:0;display:grid;place-items:center;color:#cfd8d4;text-align:center;padding:24px}
+.banner{position:absolute;left:8px;right:8px;top:8px;padding:10px 12px;border-radius:4px;font-weight:700;background:var(--cap);color:#17262b;display:none;z-index:3}.banner.show{display:block}.banner.err{background:var(--bad);color:#fff}
+.busy{position:absolute;inset:0;background:rgba(0,0,0,.6);color:#fff;display:none;place-items:center;font-weight:700;z-index:4;text-align:center;padding:20px}.busy.show{display:grid}
+.bar{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+button,select,input{font:inherit;color:inherit}
+button{min-height:48px;padding:0 14px;border:1px solid var(--ink);border-radius:6px;background:var(--panel);font-weight:700;cursor:pointer}
+button.main{background:var(--cap);color:#17262b}button:disabled{opacity:.45;cursor:not-allowed}button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+input,select{min-height:44px;padding:0 10px;border:1px solid var(--line);border-radius:6px;background:var(--bg)}
+.voice{display:flex;gap:10px;align-items:center}.lvl{flex:0 0 110px;height:14px;border:2px solid var(--ink);border-radius:8px;overflow:hidden}.lvl i{display:block;height:100%;width:0;background:var(--ok)}
+.tx{flex:1;min-height:26px;font-style:italic;color:var(--mute);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.row{display:flex;gap:8px;margin-top:8px;flex-wrap:wrap}.row input{flex:1;min-width:140px}
+.cap{display:grid;grid-template-columns:132px 1fr;gap:10px;padding:10px 0;border-top:1px solid var(--line)}.cap img{width:100%;height:auto;display:block;border-radius:4px;background:#000}.previewWrap{position:relative;width:132px;align-self:start}.previewWrap svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}/* OCR regions use class="ocrBox"; damage regions use class="damageBox". */ .ocrBox{fill:rgba(0,190,230,.08);stroke:#00d8ff;stroke-width:2;vector-effect:non-scaling-stroke}.ocrLabel{fill:#00d8ff;font:16px system-ui;font-weight:700;paint-order:stroke;stroke:#071216;stroke-width:2px;stroke-linejoin:round}.damageBox{fill:rgba(255,190,0,.10);stroke:#ffbf00;stroke-width:2;vector-effect:non-scaling-stroke}.damageLabel{fill:#ffbf00;font:16px system-ui;font-weight:700;paint-order:stroke;stroke:#071216;stroke-width:2px;stroke-linejoin:round}
+.cap h3{margin:0;font-size:15px}.fld{display:grid;grid-template-columns:110px 1fr 54px;gap:6px;align-items:center;margin-top:4px}.fld label{font-size:13px;color:var(--mute)}
+.fld input{min-height:36px;border-width:1px}.meter{height:6px;border-radius:4px;background:var(--line);overflow:hidden;grid-column:2/4}.meter i{display:block;height:100%}
+.q{color:var(--bad);font-weight:700}.s{color:var(--ok);font-weight:700}
+table{width:100%;border-collapse:collapse;font-size:14px;display:block;overflow-x:auto}td,th{padding:4px 6px;border-bottom:1px solid var(--line);text-align:left}
+pre{margin:0;max-height:280px;overflow:auto;font:12px/1.4 ui-monospace,Menlo,Consolas,monospace;background:var(--bg);padding:8px;border-radius:4px}
+.log{max-height:150px;overflow:auto;font-size:13px;color:var(--mute)}
+</style></head><body>
+<header><div><h1>FieldCapture</h1><div class="note">Voice-driven job capture. Everything runs on this computer, no API.</div></div>
+<div><span id="sess" class="pill">idle</span> <span id="net" class="pill">signal on</span> <span id="ob" class="pill">outbox 0</span></div></header>
+<main>
+<section class="col">
+ <div class="panel">
+  <div class="stage"><video id="v" muted playsinline></video><img id="still" alt="loaded image"><div class="empty" id="empty">Start the camera, or load a photo/video, to stand in for the glasses feed.</div>
+   <div class="banner" id="banner"></div><div class="busy" id="busy">Reading the frame…<br></div><div id="stageMarks" aria-label="OCR text regions"></div></div>
+  <div class="bar"><button class="main" id="bCam">Start camera</button>
+   <label class="pill" style="cursor:pointer;min-height:48px;display:inline-flex;align-items:center">Load photo or video<input id="file" type="file" accept="image/*,video/*" hidden></label>
+   <button id="bPause" disabled>Pause</button><button id="bResume" disabled>Resume</button><button id="bStop" disabled>Stop</button><button id="bDrop" disabled>Simulate glasses drop</button><button id="bNet">Toggle signal</button></div>
+  <div class="voice"><button id="bMic" class="main">Listen</button><div class="lvl" aria-label="mic level"><i id="lvl"></i></div><div class="tx" id="tx">Say “capture nameplate”, “capture damage kitchen north wall” or “note: …”</div></div>
+  <div class="row"><input id="cmd" placeholder="Or type a command" aria-label="typed command"><button id="bRun">Run</button></div>
+  <div class="row"><button id="bNp">Capture nameplate</button><button id="bDm">Capture damage</button><input id="room" placeholder="room (e.g. kitchen)" style="max-width:150px"><input id="surf" placeholder="surface (e.g. north wall)" style="max-width:170px">
+   <label class="note"><input type="checkbox" id="acc" checked> accurate mode (~17 s; untick for ~6 s, less accurate)</label></div>
+ </div>
+ <div class="panel"><h2>Event log</h2><div class="log" id="log"></div></div>
+</section>
+<section class="col">
+ <div class="panel"><h2>Captures</h2><div id="caps"><div class="note">Nothing captured yet.</div></div></div>
+ <div class="panel"><h2>Draft line items</h2><div id="lines"><div class="note">Set damage type on a damage capture to draft items. Quantities that need a size are left blank on purpose.</div></div></div>
+ <div class="panel"><h2>Job record (validated)</h2><div class="bar"><button id="bCopy">Copy JSON</button><button id="bDl">Download JSON</button><button id="bReset">New job</button></div><pre id="json"></pre></div>
+</section></main>
+<script>
+const $=id=>document.getElementById(id);const v=$("v"),still=$("still");let stream=null,sess="idle",online=true,dropT=null,recog=null,source="none";
+const post=(u,b)=>fetch(u,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(b)}).then(r=>r.json());
+function setSess(s){sess=s;$("sess").textContent=s;$("sess").className="pill "+s;$("bPause").disabled=s!=="live";$("bResume").disabled=!(s==="paused"||s==="dropped");$("bStop").disabled=!(s==="live"||s==="paused"||s==="dropped");$("bDrop").disabled=!(s==="live"&&source==="video")}
+function banner(m,err){const b=$("banner");b.textContent=m;b.className="banner show"+(err?" err":"");clearTimeout(banner.t);banner.t=setTimeout(()=>b.className="banner",6000)}
+function say(m){try{speechSynthesis.cancel();speechSynthesis.speak(new SpeechSynthesisUtterance(m))}catch(e){}}
+$("bCam").onclick=async()=>{try{stream=await navigator.mediaDevices.getUserMedia({video:{facingMode:"environment",width:{ideal:1920}},audio:false});v.srcObject=stream;v.style.display="block";still.style.display="none";await v.play();$("empty").style.display="none";source="video";setSess("live")}catch(e){banner("Camera blocked or missing. Allow camera access, or load a photo.",true)}};
+$("file").onchange=async e=>{const f=e.target.files[0];if(!f)return;if(stream){stream.getTracks().forEach(t=>t.stop());stream=null}v.srcObject=null;$("empty").style.display="none";const url=URL.createObjectURL(f);
+ if(f.type.startsWith("image")){still.src=url;still.style.display="block";v.style.display="none";source="image";$("stageMarks").style.display="none";await still.decode().catch(()=>{});setSess("live");await previewOCR()}else{v.src=url;v.loop=true;v.style.display="block";still.style.display="none";await v.play().catch(()=>{});source="video";setSess("live")}};
+$("bPause").onclick=()=>{v.pause();setSess("paused")};$("bResume").onclick=()=>{clearTimeout(dropT);if(source==="video")v.play();setSess("live")};
+$("bStop").onclick=()=>{v.pause();if(stream){stream.getTracks().forEach(t=>t.stop());stream=null}setSess("stopped");$("empty").style.display="grid"};
+$("bDrop").onclick=()=>{v.pause();setSess("dropped");banner("Glasses disconnected. Reconnecting…",true);say("Glasses disconnected");dropT=setTimeout(()=>{if(sess==="dropped"){v.play();setSess("live");banner("Reconnected. Captures kept.")}},3000)};
+$("bNet").onclick=async()=>{online=!online;await post("/api/signal",{online});$("net").textContent="signal "+(online?"on":"off");$("net").className="pill"+(online?"":" off");refresh()};
+function frame(){const el=source==="image"?still:v,w=el.naturalWidth||el.videoWidth,h=el.naturalHeight||el.videoHeight;if(!w)return null;const s=Math.min(1,1920/w),c=document.createElement("canvas");c.width=w*s;c.height=h*s;c.getContext("2d").drawImage(el,0,0,c.width,c.height);return c.toDataURL("image/jpeg",.92)}
+async function run(cmd){cmd=cmd.trim();if(!cmd)return;if(sess!=="live"&&!/^\s*note/i.test(cmd)){banner("Not capturing: session is "+sess,true);return}
+ $("busy").classList.add("show");let r;try{r=await post("/api/capture",{command:cmd,image:/^\s*note/i.test(cmd)?null:frame(),accurate:$("acc").checked})}catch(e){$("busy").classList.remove("show");banner("Server not reachable. Is python app.py running?",true);return}
+ $("busy").classList.remove("show");$("tx").textContent="Heard: “"+cmd+"”";
+ if(!r.accepted){banner(r.retake_prompt||"Rejected",true);say((r.retake_prompt||"Retake").replace("Retake requested: ","Retake. "))}else{banner("Captured "+r.capture.type+" in "+r.seconds+" s");say("Captured "+r.capture.type);drawStageOCR(r.capture)}refresh()}
+$("bRun").onclick=()=>{run($("cmd").value);$("cmd").value=""};$("cmd").onkeydown=e=>{if(e.key==="Enter")$("bRun").click()};
+$("bNp").onclick=()=>run("capture nameplate");$("bDm").onclick=()=>run("capture damage "+$("room").value+" "+$("surf").value);
+async function mic(){const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+ try{const ms=await navigator.mediaDevices.getUserMedia({audio:true}),ac=new(window.AudioContext||window.webkitAudioContext)(),an=ac.createAnalyser(),buf=new Uint8Array(256);ac.createMediaStreamSource(ms).connect(an);(function t(){an.getByteTimeDomainData(buf);let m=0;for(const b of buf)m=Math.max(m,Math.abs(b-128));$("lvl").firstElementChild.style.width=Math.min(100,m*1.2)+"%";requestAnimationFrame(t)})()}catch(e){}
+ if(!SR){banner("Speech recognition needs Chrome or Edge. Use the typed box.",true);return}
+ recog=new SR();recog.continuous=true;recog.interimResults=true;recog.lang="en-US";recog.onresult=e=>{for(let i=e.resultIndex;i<e.results.length;i++){const r=e.results[i];$("tx").textContent=r[0].transcript;if(r.isFinal)run(r[0].transcript)}};
+ recog.onend=()=>{if(recog&&recog.on)try{recog.start()}catch(e){}};recog.on=true;recog.start();$("bMic").textContent="Listening"}
+$("bMic").onclick=()=>{if(recog&&recog.on){recog.on=false;recog.stop();$("bMic").textContent="Listen";return}mic()};
+const esc=x=>String(x==null?"":x).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+async function previewOCR(){
+ const image=frame(); if(!image)return;
+ try{const r=await post("/api/ocr_preview",{image});drawOCRBoxes(r.boxes||[])}catch(e){drawOCRBoxes([])}
+}
+function drawStageOCR(c){drawOCRBoxes((c&&c.fields&&Array.isArray(c.fields._bounding_boxes)?c.fields._bounding_boxes:[]))}
+function drawOCRBoxes(boxes){
+ const host=$("stageMarks"),valid=(boxes||[]).filter(b=>b&&Array.isArray(b.box)&&b.box.length===4);
+ if(!valid.length){host.style.display="none";host.innerHTML="";return}
+ const el=source==="image"?still:v,iw=el.naturalWidth||el.videoWidth,ih=el.naturalHeight||el.videoHeight,stage=host.parentElement;
+ if(!iw||!ih){host.style.display="none";return}
+ const scale=Math.min(stage.clientWidth/iw,stage.clientHeight/ih),w=iw*scale,h=ih*scale;
+ host.style.width=w+"px";host.style.height=h+"px";host.style.left=((stage.clientWidth-w)/2)+"px";host.style.top=((stage.clientHeight-h)/2)+"px";host.style.display="block";
+ const marks=valid.map(b=>{let [y1,x1,y2,x2]=b.box.map(Number);y1=Math.max(0,Math.min(998,y1));x1=Math.max(0,Math.min(998,x1));y2=Math.max(y1,Math.min(998,y2));x2=Math.max(x1,Math.min(998,x2));const isOCR=String(b.kind||"").toLowerCase()==="ocr",label=esc(b.text||b.label||(isOCR?"OCR":"Damage")),boxClass=isOCR?"ocrBox":"damageBox",labelClass=isOCR?"ocrLabel":"damageLabel";return `<rect class="${boxClass}" x="${x1}" y="${y1}" width="${Math.max(1,x2-x1)}" height="${Math.max(1,y2-y1)}"><title>${label}</title></rect><text class="${labelClass}" x="${x1}" y="${Math.max(18,y1-6)}">${label.length>30?label.slice(0,27)+"…":label}</text>`}).join("");
+ host.innerHTML=`<svg viewBox="0 0 998 998" preserveAspectRatio="none" aria-label="Damage and OCR regions">${marks}</svg>`;
+}
+
+function fieldRow(id,k,f){const c=f.confidence||0,label=(k==="height_ft"?"height ft":k==="width_ft"?"breadth ft":k.replaceAll("_"," ")),col=c>=.6?"var(--ok)":c>=.3?"var(--cap)":"var(--bad)";return `<div class="fld"><label>${label}</label><input data-id="${id}" data-k="${k}" value="${esc(Array.isArray(f.value)?f.value.join(", "):f.value)}" placeholder="not read"><span class="note">${Math.round(c*100)}%</span><div class="meter"><i style="width:${c*100}%;background:${col}"></i></div></div>`}
+async function refresh(){let j;try{j=await (await fetch("/api/job")).json()}catch(e){return}
+ if(j.error){$("json").textContent="Record invalid: "+j.error;return}
+ $("ob").textContent="outbox "+j.pending;$("log").innerHTML=j.log.slice().reverse().map(esc).join("<br>");
+ $("caps").innerHTML=j.captures.length?j.captures.slice().reverse().map(c=>`<div class="cap"><div>${j.thumbs[c.id]?capturePreview(c,j.thumbs[c.id]):""}</div><div><h3>${c.type} <span class="note">${c.ts.slice(11,19)} · ${c.sync==="synced"?"<span class='s'>synced</span>":"<span class='q'>queued</span>"}</span></h3>${c.quality?`<div class="note">light ${c.quality.metrics.luma.toFixed(0)} · blur ratio ${c.quality.metrics.blur_ratio.toFixed(2)}${c.quality.metrics.framing!=null?" · framing "+c.quality.metrics.framing.toFixed(2):""}</div>`:""}${Object.entries(c.fields).filter(([k])=>!k.startsWith("_")&&!(["reference_id","reference_override","annotation_source"].includes(k))).map(([k,f])=>typeof f==="object"&&f&&"confidence" in f?fieldRow(c.id,k,f):"").join("")}</div></div>`).join(""):"<div class='note'>Nothing captured yet.</div>";
+ document.querySelectorAll("#caps input[data-k]").forEach(i=>i.onchange=async()=>{await post("/api/edit",{id:i.dataset.id,field:i.dataset.k,value:i.value});refresh()});
+ $("lines").innerHTML=j.line_items.length?"<table><tr><th>Code</th><th>Item</th><th>Qty</th><th>Conf</th></tr>"+j.line_items.map(l=>`<tr><td>${l.code}</td><td>${esc(l.description)}</td><td>${l.qty==null?"<span class='q'>needs size</span>":l.qty+" "+l.unit}</td><td>${l.confidence}</td></tr>`).join("")+"</table>":"<div class='note'>Set damage type on a damage capture to draft items.</div>";
+ $("json").textContent=JSON.stringify(j.record,null,2)}
+$("bCopy").onclick=()=>navigator.clipboard&&navigator.clipboard.writeText($("json").textContent);
+$("bDl").onclick=()=>{const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([$("json").textContent],{type:"application/json"}));a.download="job-record.json";a.click()};
+$("bReset").onclick=async()=>{if(confirm("Start a new job? Current captures are cleared.")){await post("/api/reset",{});refresh()}};
+function capturePreview(c,src){
+ if(!src)return "";
+ const boxes=(c.fields&&Array.isArray(c.fields._bounding_boxes)?c.fields._bounding_boxes:[]).filter(b=>b&&Array.isArray(b.box)&&b.box.length===4);
+ const overlay=boxes.map(b=>{let [y1,x1,y2,x2]=b.box.map(Number);y1=Math.max(0,Math.min(998,y1));x1=Math.max(0,Math.min(998,x1));y2=Math.max(y1,Math.min(998,y2));x2=Math.max(x1,Math.min(998,x2));const isOCR=String(b.kind||"").toLowerCase()==="ocr",label=esc(b.text||b.label||(isOCR?"OCR":"Damage")),labelText=label.length>34?label.slice(0,31)+"…":label,boxClass=isOCR?"ocrBox":"damageBox",labelClass=isOCR?"ocrLabel":"damageLabel";return `<rect class="${boxClass}" x="${x1}" y="${y1}" width="${Math.max(1,x2-x1)}" height="${Math.max(1,y2-y1)}"><title>${label}</title></rect><text class="${labelClass}" x="${x1}" y="${Math.max(18,y1-6)}">${labelText}</text>`}).join("");
+ return `<div class="previewWrap"><img src="${src}" alt="${esc(c.type)} capture">${overlay?`<svg viewBox="0 0 998 998" preserveAspectRatio="none" aria-label="OCR text regions">${overlay}</svg>`:""}</div>`;
+}
+refresh();
+</script></body></html>

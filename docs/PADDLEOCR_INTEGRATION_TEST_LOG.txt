@@ -1,0 +1,33 @@
+FieldCapture PaddleOCR integration update
+
+Changes
+1. PaddleOCR adapter now supports common PaddleOCR 2.x and 3.x output formats.
+2. Grayscale and alpha channel inputs are converted to BGR before inference.
+3. Existing PaddleOCR installation is used as-is. requirements-vision.txt no longer pins or downgrades PaddleOCR or PaddlePaddle.
+4. Added tools/check_paddleocr.py to report the versions in the active Python environment.
+5. Documented automatic ensemble, strict PaddleOCR, and Tesseract-only modes.
+6. Added adapter unit tests for image conversion and both result formats.
+
+Verification in this build environment
+Python compilation: passed.
+Automated tests: 69 passed.
+PaddleOCR runtime: not run because PaddlePaddle is not installed in this build environment.
+
+On the user's laptop
+Run from the project root using the same Python environment that launches FieldCapture:
+  python tools/check_paddleocr.py
+  python eval/compare_ocr_engines.py path/to/nameplate_images --output eval/ocr_engine_comparison.json
+
+Windows PowerShell, automatic PaddleOCR plus Tesseract:
+  $env:FIELDCAPTURE_OCR_BACKEND="auto"
+  python app.py
+
+Windows PowerShell, require PaddleOCR and fail visibly if unavailable:
+  $env:FIELDCAPTURE_OCR_BACKEND="paddle"
+  python app.py
+
+Windows PowerShell, Tesseract only:
+  $env:FIELDCAPTURE_OCR_BACKEND="tesseract"
+  python app.py
+
+No OCR accuracy improvement is claimed until the comparison is run against ground truth labels.

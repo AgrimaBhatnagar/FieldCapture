@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>FieldCapture</title>
+<style>
+:root{--bg:#e7e9e5;--panel:#f6f7f4;--ink:#17262b;--mute:#5b6b6f;--line:#c5cbc6;--cap:#f2c200;--ok:#0e6b5f;--bad:#b3261e;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#101a1d;--panel:#18262a;--ink:#e6ece9;--mute:#93a5a8;--line:#2d4247;--ok:#4fc7b4;--bad:#ff8a80;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#101a1d;--panel:#18262a;--ink:#e6ece9;--mute:#93a5a8;--line:#2d4247;--ok:#4fc7b4;--bad:#ff8a80;color-scheme:dark}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+header{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;padding:14px 20px;border-bottom:2px solid var(--ink)}
+h1{margin:0;font-size:22px;letter-spacing:-.01em}h2{margin:0 0 8px;font-size:16px}
+.pill{display:inline-block;padding:3px 10px;border:2px solid var(--ink);border-radius:99px;font-weight:700;font-size:14px}
+.pill.live{background:var(--ok);color:#fff;border-color:var(--ok)}.pill.dropped,.pill.stopped{background:var(--bad);color:#fff;border-color:var(--bad)}.pill.paused{background:var(--cap)}
+main{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:16px;padding:16px 20px;max-width:1400px;margin:auto}
+@media(max-width:900px){main{grid-template-columns:1fr;padding:12px}}
+.panel{background:var(--panel);border:2px solid var(--ink);border-radius:6px;padding:12px}
+.stage{position:relative;background:#000;border-radius:4px;overflow:hidden;aspect-ratio:4/3}
+video{width:100%;height:100%;object-fit:cover;display:block}
+.empty{position:absolute;inset:0;display:grid;place-items:center;color:#cfd8d4;text-align:center;padding:24px}
+.reticle{position:absolute;inset:25%;border:2px dashed rgba(242,194,0,.8);pointer-events:none}
+.hud{position:absolute;left:8px;right:8px;bottom:8px;display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.m{background:rgba(10,20,22,.82);color:#fff;border-radius:4px;padding:4px 8px;font-size:13px;border-left:6px solid var(--ok)}
+.m.bad{border-left-color:#ff6b61}.m b{font-size:17px}
+.banner{position:absolute;left:8px;right:8px;top:8px;padding:10px 12px;border-radius:4px;font-weight:700;background:var(--cap);color:#17262b;display:none}
+.banner.show{display:block}.banner.err{background:var(--bad);color:#fff}
+.bar{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+button,select,input{font:inherit;color:inherit}
+button{min-height:48px;padding:0 16px;border:2px solid var(--ink);border-radius:6px;background:var(--panel);font-weight:700;cursor:pointer}
+button.main{background:var(--cap);color:#17262b}button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+button:disabled{opacity:.45;cursor:not-allowed}
+input,select{min-height:44px;padding:0 10px;border:2px solid var(--line);border-radius:6px;background:var(--bg)}
+.voice{display:flex;gap:12px;align-items:center;margin-top:6px}
+.lvl{flex:0 0 120px;height:14px;border:2px solid var(--ink);border-radius:8px;overflow:hidden}.lvl i{display:block;height:100%;width:0;background:var(--ok)}
+.tx{flex:1;min-height:28px;font-style:italic;color:var(--mute);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cmd{display:flex;gap:8px;margin-top:8px}.cmd input{flex:1}
+.th{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:8px}
+.th label{font-size:13px;color:var(--mute);display:grid;gap:2px}
+.cap{display:grid;grid-template-columns:96px 1fr;gap:10px;padding:10px 0;border-top:1px solid var(--line)}
+.cap img{width:96px;height:72px;object-fit:cover;border-radius:4px;background:#000}
+.cap h3{margin:0;font-size:15px}.tag{font-size:13px;color:var(--mute)}
+.cap .f{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}.cap .f input,.cap .f select{min-height:38px;width:130px}
+.conf{font-size:12px;font-weight:700;padding:1px 6px;border-radius:4px;background:var(--line)}
+.q{color:var(--bad);font-weight:700}.s{color:var(--ok);font-weight:700}
+pre{margin:0;max-height:300px;overflow:auto;font:12px/1.4 ui-monospace,Menlo,Consolas,monospace;background:var(--bg);padding:8px;border-radius:4px}
+table{width:100%;border-collapse:collapse;font-size:14px;display:block;overflow-x:auto}td,th{padding:4px 6px;border-bottom:1px solid var(--line);text-align:left}
+.log{max-height:140px;overflow:auto;font-size:13px;color:var(--mute)}
+.col{display:grid;gap:16px;align-content:start}
+.note{font-size:13px;color:var(--mute)}
+@media(prefers-reduced-motion:no-preference){.banner{transition:opacity .2s}}
+</style></head><body>
+<header><div><h1>FieldCapture</h1><div class="note">Hands-free job capture. Browser stand-in for the glasses feed.</div></div>
+<div><span id="sess" class="pill">idle</span> <span id="net" class="pill">signal: on</span> <span id="outbox" class="pill">outbox 0</span></div></header>
+<main>
+<section class="col">
+<div class="panel">
+<div class="stage"><video id="v" muted playsinline></video><div class="empty" id="empty">Start the phone camera or load a recorded walk-through to stand in for the glasses.</div><div class="reticle"></div>
+<div class="banner" id="banner"></div>
+<div class="hud"><div class="m" id="mBlur">Sharpness <b>–</b></div><div class="m" id="mLuma">Light <b>–</b></div><div class="m" id="mFrame">Framing <b>–</b></div></div></div>
+<div class="bar">
+<button class="main" id="bStart">Start camera</button>
+<label class="pill" style="cursor:pointer;min-height:48px;display:inline-flex;align-items:center">Load video<input id="file" type="file" accept="video/*" hidden></label>
+<button id="bPause" disabled>Pause</button><button id="bResume" disabled>Resume</button><button id="bStop" disabled>Stop</button>
+<button id="bDrop" disabled>Simulate glasses drop</button><button id="bNet">Toggle signal</button></div>
+<div class="voice"><button id="bMic" class="main">Listen</button><div class="lvl" aria-label="Mic level"><i id="lvl"></i></div><div class="tx" id="tx">Say “capture nameplate”, “capture damage kitchen north wall” or “note: …”</div></div>
+<div class="cmd"><input id="cmd" placeholder="Typed fallback, e.g. capture damage kitchen north wall" aria-label="Typed command"><button id="bRun">Run</button></div>
+<div class="bar"><button id="bNp">Capture nameplate</button><button id="bDm">Capture damage</button></div>
+</div>
+<div class="panel"><h2>Quality thresholds (starting values, not calibrated)</h2>
+<div class="th"><label>Min sharpness <span id="tB"></span><input type="range" id="sB" min="5" max="200" value="40"></label>
+<label>Min light <span id="tL"></span><input type="range" id="sL" min="10" max="120" value="45"></label>
+<label>Min framing <span id="tF"></span><input type="range" id="sF" min="30" max="150" value="80"></label></div>
+<p class="note">Sharpness is variance of the Laplacian on a 160×120 grayscale frame. Light is mean luma (0–255). Framing is edge energy in the centre half divided by whole frame. Tune these on your own frames from the eval set.</p></div>
+<div class="panel"><h2>Event log</h2><div class="log" id="log"></div></div>
+</section>
+<section class="col">
+<div class="panel"><h2>Captures</h2><div id="caps"><div class="note">Nothing captured yet.</div></div></div>
+<div class="panel"><h2>Draft line items</h2><div id="lines"></div></div>
+<div class="panel"><h2>Job record</h2><div class="bar"><button id="bCopy">Copy JSON</button><button id="bDl">Download JSON</button></div><pre id="json"></pre></div>
+<div class="panel"><h2>What this prototype does not do</h2><p class="note">No vision model runs here: nameplate and damage-type fields start empty with confidence 0 and are filled by the tech. Sync is a local outbox with no server. The real DAT session, HFP glasses mic and model extraction belong in the native app.</p></div>
+</section></main>
+<script>
+const $=id=>document.getElementById(id);
+const ROOMS=["kitchen","bathroom","bedroom","basement","attic","garage","laundry","hallway","living room","closet"];
+const SURF=["wall","ceiling","floor","subfloor","cabinet","baseboard","window","door","drywall"];
+const DIR=["north","south","east","west","left","right","front","back"];
+const DTYPES=["water stain","sagging","mold","soft or rot","crack"];
+const CAT={"DRY-01":["Remove and replace drywall","sq ft"],"DRY-02":["Prime and paint","sq ft"],"CEI-01":["Remove and replace ceiling drywall","sq ft"],"FLR-01":["Replace subfloor section","sq ft"],"MLD-01":["Mold remediation","sq ft"],"INS-01":["Remove wet insulation","sq ft"],"BSB-01":["Replace baseboard","lin ft"],"CAB-01":["Detach and reset cabinet","each"],"DOC-01":["Moisture mapping","per room"],"DEH-01":["Dehumidifier, days to confirm","per room"],"AIR-01":["Air mover, days to confirm","per room"],"WH-01":["Water heater inspection","each"]};
+let S={sess:"idle",online:true,caps:[],log:[],job:"JOB-"+Date.now().toString(36).toUpperCase(),t0:new Date().toISOString(),n:0};
+try{const r=JSON.parse(localStorage.getItem("fc")||"null");if(r&&r.caps){S=Object.assign(S,r);S.sess="idle"}}catch(e){}
+const save=()=>{try{localStorage.setItem("fc",JSON.stringify(S))}catch(e){}};
+const v=$("v"),cv=document.createElement("canvas");cv.width=160;cv.height=120;const cx=cv.getContext("2d",{willReadFrequently:true});
+let stream=null,lastQ=null,recog=null,dropTimer=null;
+function log(m){S.log.push({t:new Date().toISOString(),m});if(S.log.length>200)S.log.shift();$("log").innerHTML=S.log.slice(-30).reverse().map(e=>e.t.slice(11,19)+" "+e.m).join("<br>");save()}
+function setSess(s,why){const from=S.sess;S.sess=s;$("sess").textContent=s;$("sess").className="pill "+s;
+ $("bPause").disabled=s!=="live";$("bResume").disabled=!(s==="paused"||s==="dropped");$("bStop").disabled=!(s==="live"||s==="paused"||s==="dropped");$("bDrop").disabled=s!=="live";
+ log("session "+from+" → "+s+(why?" ("+why+")":""))}
+function banner(m,err){const b=$("banner");b.textContent=m;b.className="banner show"+(err?" err":"");clearTimeout(banner.t);banner.t=setTimeout(()=>b.className="banner",5000)}
+function speak(m){try{speechSynthesis.cancel();speechSynthesis.speak(new SpeechSynthesisUtterance(m))}catch(e){}}
+async function startCam(){try{stream=await navigator.mediaDevices.getUserMedia({video:{facingMode:"environment"},audio:false});v.srcObject=stream;await v.play();$("empty").style.display="none";setSess("live","phone camera");}catch(e){banner("Camera blocked. Allow camera access or load a video file.",true);log("camera error: "+e.name)}}
+$("bStart").onclick=startCam;
+$("file").onchange=async e=>{const f=e.target.files[0];if(!f)return;if(stream){stream.getTracks().forEach(t=>t.stop());stream=null}v.srcObject=null;v.src=URL.createObjectURL(f);v.loop=true;await v.play().catch(()=>{});$("empty").style.display="none";setSess("live","video file")};
+$("bPause").onclick=()=>{v.pause();setSess("paused","tech paused")};
+$("bResume").onclick=()=>{clearTimeout(dropTimer);v.play();setSess("live","resumed")};
+$("bStop").onclick=()=>{v.pause();if(stream){stream.getTracks().forEach(t=>t.stop());stream=null}setSess("stopped","tech stopped");$("empty").style.display="grid"};
+$("bDrop").onclick=()=>{v.pause();setSess("dropped","simulated hinge close or link loss");banner("Glasses disconnected. Reconnecting…",true);speak("Glasses disconnected");
+ dropTimer=setTimeout(()=>{if(S.sess==="dropped"){v.play();setSess("live","auto-recovered after 3s");banner("Reconnected. Captures kept.");}},3000)};
+function thr(){return{b:+$("sB").value,l:+$("sL").value,f:+$("sF").value/100}}
+function metricsGray(g,W,H){let sum=0;for(let i=0;i<W*H;i++)sum+=g[i];const luma=sum/(W*H);let ls=0,ls2=0,n=0,ec=0,nc=0,ea=0,na=0;
+ for(let y=1;y<H-1;y++)for(let x=1;x<W-1;x++){const i=y*W+x,l=4*g[i]-g[i-1]-g[i+1]-g[i-W]-g[i+W];ls+=l;ls2+=l*l;n++;
+  const e=Math.abs(g[i+1]-g[i-1])+Math.abs(g[i+W]-g[i-W]);ea+=e;na++;if(x>=40&&x<119&&y>=30&&y<89){ec+=e;nc++}}
+ const m=ls/n,blur=ls2/n-m*m,frame=(ec/nc)/((ea/na)+1e-6);return{blur:+blur.toFixed(1),luma:+luma.toFixed(1),framing:+frame.toFixed(2)}}
+function measure(){if(!v.videoWidth)return null;cx.drawImage(v,0,0,160,120);const d=cx.getImageData(0,0,160,120).data,g=new Float64Array(19200);
+ for(let i=0;i<19200;i++)g[i]=.299*d[i*4]+.587*d[i*4+1]+.114*d[i*4+2];return metricsGray(g,160,120)}
+function verdict(q){const t=thr(),why=[];if(q.luma<t.l)why.push("too dark, turn on a light");if(q.blur<t.b)why.push("blurry, hold still");if(q.framing<t.f)why.push("subject off-centre, aim at the target");return why}
+function hud(){const q=measure();if(!q)return;lastQ=q;const t=thr();
+ $("tB").textContent=t.b;$("tL").textContent=t.l;$("tF").textContent=t.f;
+ const set=(id,l,val,ok)=>{$(id).innerHTML=l+" <b>"+val+"</b>";$(id).className="m"+(ok?"":" bad")};
+ set("mBlur","Sharpness",q.blur,q.blur>=t.b);set("mLuma","Light",q.luma,q.luma>=t.l);set("mFrame","Framing",q.framing,q.framing>=t.f)}
+setInterval(()=>{if(S.sess==="live")hud()},250);
+function F(value,conf,src){return{value,confidence:conf,source:src}}
+function parse(raw){const s=raw.toLowerCase().replace(/[.,]/g," ").replace(/\s+/g," ").trim();
+ if(/^capture nameplate/.test(s))return{type:"nameplate"};
+ let m=s.match(/^capture damage\s*(.*)$/);
+ if(m){const tk=m[1].split(" ").filter(Boolean);let si=-1;tk.forEach((w,i)=>{if(SURF.includes(w))si=i});
+  if(si<0)return{type:"damage",room:tk.join(" ")||null,surface:null};
+  let d=si;if(si>0&&DIR.includes(tk[si-1]))d=si-1;
+  return{type:"damage",room:tk.slice(0,d).join(" ")||null,surface:tk.slice(d,si+1).join(" ")}}
+ m=raw.match(/^\s*note\s*[:,-]?\s*(.+)$/i);if(m)return{type:"note",text:m[1].trim()};
+ return null}
+function tryCapture(p,heard){const q=measure();if(S.sess!=="live"||!q){banner("Not capturing: session is "+S.sess,true);log("rejected "+p.type+": session "+S.sess);return}
+ if(p.type!=="note"){const why=verdict(q);if(why.length){const msg="Retake: "+why.join("; ");banner(msg,true);speak(msg);log("rejected "+p.type+" ("+why.join(", ")+") "+JSON.stringify(q));return}}
+ cx.drawImage(v,0,0,160,120);const thumb=p.type==="note"?null:cv.toDataURL("image/jpeg",.6);
+ const c={id:"c"+(++S.n),type:p.type,ts:new Date().toISOString(),heard,quality:p.type==="note"?null:Object.assign({},q,{pass:true}),thumb,sync:"queued",fields:{}};
+ if(p.type==="nameplate")["make","model","serial","manufacture_date"].forEach(k=>c.fields[k]=F(null,0,"pending"));
+ if(p.type==="damage"){c.fields.room=F(p.room,p.room?(ROOMS.includes(p.room)?.9:.6):0,"voice");c.fields.surface=F(p.surface,p.surface?(SURF.includes(p.surface.split(" ").pop())?.9:.5):0,"voice");
+  c.fields.damage_type=F(null,0,"pending");c.fields.length_ft=F(null,0,"pending");c.fields.height_ft=F(null,0,"pending")}
+ if(p.type==="note"){const t=p.text.toLowerCase();c.fields.text=F(p.text,.95,"voice");c.fields.tags=F(["soft","wet","mold","leak","stain","cabinet","subfloor","rot","smell"].filter(k=>t.includes(k)),.7,"keyword");
+  const r=ROOMS.find(x=>t.includes(x));c.fields.room=F(r||null,r?.6:0,"keyword")}
+ S.caps.push(c);log("captured "+p.type+" "+c.id);banner("Captured "+p.type,false);speak("Captured "+p.type);flush();renderCaps()}
+function run(raw){const p=parse(raw);if(!p){log("not a command: "+raw);$("tx").textContent="Not recognised: “"+raw+"”";return}$("tx").textContent="Heard: “"+raw+"” → "+p.type;tryCapture(p,raw)}
+$("bRun").onclick=()=>{if($("cmd").value.trim())run($("cmd").value);$("cmd").value=""};
+$("cmd").onkeydown=e=>{if(e.key==="Enter")$("bRun").click()};
+$("bNp").onclick=()=>tryCapture({type:"nameplate"},"(button)");
+$("bDm").onclick=()=>tryCapture({type:"damage",room:null,surface:null},"(button)");
+async function mic(){const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+ try{const ms=await navigator.mediaDevices.getUserMedia({audio:true}),ac=new(window.AudioContext||window.webkitAudioContext)(),an=ac.createAnalyser(),buf=new Uint8Array(256);ac.createMediaStreamSource(ms).connect(an);
+  (function tick(){an.getByteTimeDomainData(buf);let mx=0;for(const b of buf)mx=Math.max(mx,Math.abs(b-128));$("lvl").firstElementChild.style.width=Math.min(100,mx/1.28*1.5)+"%";requestAnimationFrame(tick)})()}catch(e){log("mic level unavailable: "+e.name)}
+ if(!SR){banner("Speech recognition not supported in this browser. Use the typed command box.",true);log("no SpeechRecognition API");return}
+ recog=new SR();recog.continuous=true;recog.interimResults=true;recog.lang="en-US";
+ recog.onresult=e=>{for(let i=e.resultIndex;i<e.results.length;i++){const r=e.results[i],t=r[0].transcript;$("tx").textContent=t;if(r.isFinal)run(t)}};
+ recog.onend=()=>{if(recog&&recog.on)try{recog.start()}catch(e){}};recog.onerror=e=>log("speech error: "+e.error);
+ recog.on=true;recog.start();$("bMic").textContent="Listening";log("speech started (phone mic; glasses mic uses HFP in the native app)")}
+$("bMic").onclick=()=>{if(recog&&recog.on){recog.on=false;recog.stop();$("bMic").textContent="Listen";return}mic()};
+function online(){return S.online}
+function flush(){const q=S.caps.filter(c=>c.sync==="queued");$("outbox").textContent="outbox "+q.length;
+ if(S.online&&q.length)setTimeout(()=>{if(!S.online)return;q.forEach(c=>c.sync="synced");log("synced "+q.length+" capture(s) from outbox");$("outbox").textContent="outbox 0";save();renderCaps()},700);save()}
+$("bNet").onclick=()=>{S.online=!S.online;$("net").textContent="signal: "+(S.online?"on":"off");log("signal "+(S.online?"restored":"lost")+(S.online?"":": captures will queue"));flush();renderCaps()};
+function area(c){const l=c.fields.length_ft.value,h=c.fields.height_ft.value;return l&&h?+(l*h).toFixed(1):null}
+function lines(){const out=[],rooms=new Set();const add=(code,qty,basis,conf)=>out.push({code,description:CAT[code][0],unit:CAT[code][1],qty,basis,confidence:+conf.toFixed(2)});
+ for(const c of S.caps){const f=c.fields;
+  if(c.type==="nameplate")add("WH-01",1,"nameplate captured; confirm appliance",.5);
+  if(c.type==="damage"&&f.damage_type.value){const t=f.damage_type.value,s=(f.surface.value||"").split(" ").pop(),a=area(c),cf=Math.min(f.surface.confidence||.5,a?1:.3);
+   const bas=c.id+": "+t+" on "+(f.surface.value||"?")+(a?"":" (size needed)");
+   if(s==="ceiling")add("CEI-01",a,bas,cf);else if(s==="subfloor"||s==="floor")add("FLR-01",a,bas,cf);
+   else if(s==="baseboard")add("BSB-01",f.length_ft.value,bas,cf);else if(s==="cabinet")add("CAB-01",1,bas,cf);else add("DRY-01",a,bas,cf);
+   if(["wall","ceiling","drywall"].includes(s))add("DRY-02",a,bas,cf);
+   if(t==="mold")add("MLD-01",a,bas,cf);if(t==="sagging"&&["wall","ceiling"].includes(s))add("INS-01",a,bas,cf);
+   const r=f.room.value||"unknown room";if(!rooms.has(r)){rooms.add(r);add("DOC-01",1,"room: "+r,.8);if(["water stain","sagging","soft or rot"].includes(t)){add("DEH-01",1,"room: "+r,.6);add("AIR-01",1,"room: "+r,.6)}}}
+  if(c.type==="note"){const t=(f.text.value||"").toLowerCase();if(t.includes("cabinet"))add("CAB-01",1,c.id+": note mentions cabinet",.5);if(t.includes("subfloor")&&t.includes("soft"))add("FLR-01",null,c.id+": soft subfloor, size needed",.4)}}
+ return out}
+function record(){return{schema:"fieldcapture.job/0.1",job_id:S.job,started_at:S.t0,session_state:S.sess,thresholds:thr(),
+ captures:S.caps.map(c=>({id:c.id,type:c.type,ts:c.ts,heard:c.heard,quality:c.quality,sync:c.sync,fields:c.fields,derived:c.type==="damage"?{area_sqft:area(c)}:undefined})),line_items:lines()}}
+function renderOut(){const L=lines();$("lines").innerHTML=L.length?"<table><tr><th>Code</th><th>Item</th><th>Qty</th><th>Conf</th></tr>"+L.map(l=>`<tr><td>${l.code}</td><td>${l.description}</td><td>${l.qty==null?"<span class='q'>needs size</span>":l.qty+" "+l.unit}</td><td>${l.confidence}</td></tr>`).join("")+"</table>":"<div class='note'>Set a damage type on a damage capture to draft items.</div>";
+ $("json").textContent=JSON.stringify(record(),null,2);$("outbox").textContent="outbox "+S.caps.filter(c=>c.sync==="queued").length;save()}
+function esc(x){return String(x==null?"":x).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]))}
+function renderCaps(){const el=$("caps");if(!S.caps.length){el.innerHTML="<div class='note'>Nothing captured yet.</div>";renderOut();return}
+ el.innerHTML="";S.caps.slice().reverse().forEach(c=>{const d=document.createElement("div");d.className="cap";const f=c.fields;
+  let h=`<div>${c.thumb?`<img src="${c.thumb}" alt="${c.type} frame">`:""}</div><div><h3>${c.type} <span class="tag">${c.ts.slice(11,19)} · ${c.sync==="synced"?"<span class='s'>synced</span>":"<span class='q'>queued</span>"}</span></h3>`;
+  if(c.quality)h+=`<div class="tag">sharp ${c.quality.blur} · light ${c.quality.luma} · framing ${c.quality.framing}</div>`;
+  h+=`<div class="tag">heard: ${esc(c.heard)}</div><div class="f" data-id="${c.id}">`;
+  if(c.type==="nameplate")["make","model","serial","manufacture_date"].forEach(k=>h+=`<input data-k="${k}" placeholder="${k.replace("_"," ")}" value="${esc(f[k].value)}" aria-label="${k}">`);
+  if(c.type==="damage"){h+=`<span>${esc(f.room.value||"room?")} / ${esc(f.surface.value||"surface?")} <span class="conf">${f.room.confidence}/${f.surface.confidence}</span></span><select data-k="damage_type" aria-label="damage type"><option value="">damage type</option>${DTYPES.map(t=>`<option${f.damage_type.value===t?" selected":""}>${t}</option>`).join("")}</select><input data-k="length_ft" type="number" min="0" step="0.5" placeholder="length ft" value="${f.length_ft.value??""}"><input data-k="height_ft" type="number" min="0" step="0.5" placeholder="height ft" value="${f.height_ft.value??""}">`}
+  if(c.type==="note")h+=`<span>${esc(f.text.value)} <span class="conf">${f.text.confidence}</span></span> <span class="tag">tags: ${esc(f.tags.value.join(", ")||"none")}</span>`;
+  h+=`<button data-del="${c.id}" aria-label="Delete capture">Delete</button></div></div>`;d.innerHTML=h;el.appendChild(d)});
+ el.querySelectorAll("[data-k]").forEach(i=>i.onchange=()=>{const id=i.parentElement.dataset.id,c=S.caps.find(x=>x.id===id),k=i.dataset.k;let val=i.value;if(i.type==="number")val=val===""?null:+val;else val=val||null;c.fields[k]=F(val,val==null?0:1,"tech");renderOut()});
+ el.querySelectorAll("[data-del]").forEach(b=>b.onclick=()=>{S.caps=S.caps.filter(x=>x.id!==b.dataset.del);log("deleted "+b.dataset.del);renderCaps()});renderOut()}
+$("bCopy").onclick=()=>navigator.clipboard&&navigator.clipboard.writeText($("json").textContent);
+$("bDl").onclick=()=>{const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([$("json").textContent],{type:"application/json"}));a.download=S.job+".json";a.click()};
+["sB","sL","sF"].forEach(id=>$(id).oninput=hud);
+document.addEventListener("visibilitychange",()=>{if(document.hidden&&S.sess==="live"){v.pause();setSess("paused","app backgrounded")}});
+$("tB").textContent=40;$("tL").textContent=45;$("tF").textContent=.8;
+log("app loaded; "+S.caps.length+" capture(s) restored from device storage");renderCaps();flush();
+</script></body></html>

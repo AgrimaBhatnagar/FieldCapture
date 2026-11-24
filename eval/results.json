@@ -1,0 +1,448 @@
+{
+ "quality": {
+  "blur_good_range": [
+   0.41,
+   0.69
+  ],
+  "blur_false_rejects_at_cut": 0,
+  "blur_catch_sigma1.5": 0.294,
+  "blur_catch_sigma3.0": 0.902,
+  "luma_retake_values": [
+   27.4,
+   32.1,
+   32.4,
+   33.6,
+   56.8
+  ],
+  "luma_usable_min": 60.2,
+  "luma_cut_label_accuracy": 1.0,
+  "framing_good_range": [
+   1.02,
+   2.38
+  ],
+  "framing_catch_corner_crop": 0.7,
+  "framing_false_rejects_nameplates": 0,
+  "v1_gate_rejects_of_10_wall_photos": 5,
+  "v2_gate_pass_by_group": {
+   "nameplate": "10/10",
+   "extra": "11/11",
+   "home": "10/10",
+   "lowlight": "5/10",
+   "wall": "10/10"
+  },
+  "v2_rejected": {
+   "31": [
+    "too dark, turn on a light"
+   ],
+   "32": [
+    "too dark, turn on a light"
+   ],
+   "33": [
+    "too dark, turn on a light"
+   ],
+   "38": [
+    "too dark, turn on a light"
+   ],
+   "40": [
+    "too dark, turn on a light"
+   ]
+  }
+ },
+ "nameplate": {
+  "full": {
+   "report": {
+    "per_field": {
+     "nameplate.make": {
+      "n": 10,
+      "accuracy": 1.0,
+      "mean_conf_when_right": 0.65,
+      "mean_conf_when_wrong": null
+     },
+     "nameplate.manufacture_date": {
+      "n": 4,
+      "accuracy": 0.75,
+      "mean_conf_when_right": 0.294,
+      "mean_conf_when_wrong": 0.083
+     },
+     "nameplate.model": {
+      "n": 10,
+      "accuracy": 0.7,
+      "mean_conf_when_right": 0.445,
+      "mean_conf_when_wrong": 0.04
+     },
+     "nameplate.serial": {
+      "n": 6,
+      "accuracy": 0.667,
+      "mean_conf_when_right": 0.438,
+      "mean_conf_when_wrong": 0.248
+     }
+    },
+    "worst_5": [
+     {
+      "frame": "pic8.jpg#8",
+      "kind": "nameplate",
+      "field": "serial",
+      "truth": "K73910658",
+      "pred": "K73919658",
+      "confidence": 0.497,
+      "lowlight": false
+     },
+     {
+      "frame": "pic10.jpg#1",
+      "kind": "nameplate",
+      "field": "manufacture_date",
+      "truth": "2014.10",
+      "pred": "2014.11",
+      "confidence": 0.083,
+      "lowlight": false
+     },
+     {
+      "frame": "pic8.jpg#8",
+      "kind": "nameplate",
+      "field": "model",
+      "truth": "WRF767SDEM01",
+      "pred": "WRF767SDEN@1",
+      "confidence": 0.064,
+      "lowlight": false
+     },
+     {
+      "frame": "pic3.jpg#3",
+      "kind": "nameplate",
+      "field": "model",
+      "truth": "LP0721WSR",
+      "pred": "LPO721WSR",
+      "confidence": 0.056,
+      "lowlight": false
+     },
+     {
+      "frame": "pic10.jpg#1",
+      "kind": "nameplate",
+      "field": "model",
+      "truth": "LMXS30776S/00",
+      "pred": "LMXS307765/0",
+      "confidence": 0.0,
+      "lowlight": false
+     }
+    ],
+    "frames": 10,
+    "nameplates": 10,
+    "lowlight": 0
+   },
+   "secs": 16.9
+  },
+  "fast": {
+   "report": {
+    "per_field": {
+     "nameplate.make": {
+      "n": 10,
+      "accuracy": 0.9,
+      "mean_conf_when_right": 0.75,
+      "mean_conf_when_wrong": 0.0
+     },
+     "nameplate.manufacture_date": {
+      "n": 4,
+      "accuracy": 1.0,
+      "mean_conf_when_right": 0.287,
+      "mean_conf_when_wrong": null
+     },
+     "nameplate.model": {
+      "n": 10,
+      "accuracy": 0.6,
+      "mean_conf_when_right": 0.479,
+      "mean_conf_when_wrong": 0.161
+     },
+     "nameplate.serial": {
+      "n": 6,
+      "accuracy": 0.5,
+      "mean_conf_when_right": 0.488,
+      "mean_conf_when_wrong": 0.2
+     }
+    },
+    "worst_5": [
+     {
+      "frame": "pic8.jpg#8",
+      "kind": "nameplate",
+      "field": "serial",
+      "truth": "K73910658",
+      "pred": "K73919658",
+      "confidence": 0.6,
+      "lowlight": false
+     },
+     {
+      "frame": "pic8.jpg#8",
+      "kind": "nameplate",
+      "field": "model",
+      "truth": "WRF767SDEM01",
+      "pred": "OZR134a",
+      "confidence": 0.22,
+      "lowlight": false
+     },
+     {
+      "frame": "pic7.jpg#7",
+      "kind": "nameplate",
+      "field": "model",
+      "truth": "LFC25770SB",
+      "pred": "ITLFC25770SB",
+      "confidence": 0.212,
+      "lowlight": false
+     },
+     {
+      "frame": "pic3.jpg#3",
+      "kind": "nameplate",
+      "field": "model",
+      "truth": "LP0721WSR",
+      "pred": "LPO721WWSR",
+      "confidence": 0.115,
+      "lowlight": false
+     },
+     {
+      "frame": "pic10.jpg#1",
+      "kind": "nameplate",
+      "field": "model",
+      "truth": "LMXS30776S/00",
+      "pred": "LMXS307768/00",
+      "confidence": 0.095,
+      "lowlight": false
+     }
+    ],
+    "frames": 10,
+    "nameplates": 10,
+    "lowlight": 0
+   },
+   "secs": 6.2
+  }
+ },
+ "damage": {
+  "n": 41,
+  "classes": {
+   "stain": 15,
+   "standing_water": 8,
+   "none": 10,
+   "crack": 8
+  },
+  "baseline": 0.366,
+  "loo_accuracy": 0.634,
+  "tree_conf_right": 0.747,
+  "tree_conf_wrong": 0.799,
+  "precision_by_class": {
+   "crack": 0.667,
+   "none": 0.6,
+   "stain": 0.619,
+   "standing_water": 0.667
+  },
+  "confusion": {
+   "stain": {
+    "stain": 13,
+    "crack": 1,
+    "standing_water": 1
+   },
+   "standing_water": {
+    "stain": 2,
+    "standing_water": 4,
+    "none": 2
+   },
+   "none": {
+    "stain": 5,
+    "none": 3,
+    "crack": 2
+   },
+   "crack": {
+    "crack": 6,
+    "standing_water": 1,
+    "stain": 1
+   }
+  },
+  "errors": [
+   [
+    14,
+    "stain",
+    "crack"
+   ],
+   [
+    20,
+    "standing_water",
+    "stain"
+   ],
+   [
+    21,
+    "none",
+    "stain"
+   ],
+   [
+    23,
+    "none",
+    "stain"
+   ],
+   [
+    24,
+    "none",
+    "stain"
+   ],
+   [
+    27,
+    "standing_water",
+    "stain"
+   ],
+   [
+    29,
+    "standing_water",
+    "none"
+   ],
+   [
+    32,
+    "none",
+    "crack"
+   ],
+   [
+    34,
+    "none",
+    "stain"
+   ],
+   [
+    35,
+    "standing_water",
+    "none"
+   ],
+   [
+    36,
+    "none",
+    "stain"
+   ],
+   [
+    37,
+    "stain",
+    "standing_water"
+   ],
+   [
+    40,
+    "none",
+    "crack"
+   ],
+   [
+    43,
+    "crack",
+    "standing_water"
+   ],
+   [
+    45,
+    "crack",
+    "stain"
+   ]
+  ]
+ },
+ "sample": {
+  "log": [
+   {
+    "image": "pic2.jpg",
+    "command": "capture nameplate",
+    "accepted": true,
+    "retake_prompt": null
+   },
+   {
+    "image": "WhatsApp Image 2026-11-23 at 1.22.09 PM (3).jpeg",
+    "command": "capture damage kitchen ceiling",
+    "accepted": true,
+    "retake_prompt": null
+   },
+   {
+    "image": "WhatsApp Image 2026-11-23 at 1.22.10 PM (1).jpeg",
+    "command": "capture damage bedroom north wall",
+    "accepted": true,
+    "retake_prompt": null
+   },
+   {
+    "image": "WhatsApp Image 2026-11-23 at 1.22.09 PM (1).jpeg",
+    "command": "capture damage basement floor",
+    "accepted": true,
+    "retake_prompt": null
+   }
+  ],
+  "line_items": [
+   {
+    "code": "WH-01",
+    "qty": 1,
+    "confidence": 0.5
+   },
+   {
+    "code": "CEI-01",
+    "qty": null,
+    "confidence": 0.3
+   },
+   {
+    "code": "DRY-02",
+    "qty": null,
+    "confidence": 0.3
+   },
+   {
+    "code": "DOC-01",
+    "qty": 1,
+    "confidence": 0.8
+   },
+   {
+    "code": "DEH-01",
+    "qty": 1,
+    "confidence": 0.6
+   },
+   {
+    "code": "AIR-01",
+    "qty": 1,
+    "confidence": 0.6
+   },
+   {
+    "code": "DRY-01",
+    "qty": null,
+    "confidence": 0.3
+   },
+   {
+    "code": "DRY-02",
+    "qty": null,
+    "confidence": 0.3
+   },
+   {
+    "code": "DOC-01",
+    "qty": 1,
+    "confidence": 0.8
+   },
+   {
+    "code": "DEH-01",
+    "qty": 1,
+    "confidence": 0.6
+   },
+   {
+    "code": "AIR-01",
+    "qty": 1,
+    "confidence": 0.6
+   },
+   {
+    "code": "FLR-01",
+    "qty": null,
+    "confidence": 0.3
+   },
+   {
+    "code": "DOC-01",
+    "qty": 1,
+    "confidence": 0.8
+   },
+   {
+    "code": "DEH-01",
+    "qty": 1,
+    "confidence": 0.6
+   },
+   {
+    "code": "AIR-01",
+    "qty": 1,
+    "confidence": 0.6
+   },
+   {
+    "code": "CAB-01",
+    "qty": 1,
+    "confidence": 0.5
+   },
+   {
+    "code": "FLR-01",
+    "qty": null,
+    "confidence": 0.4
+   }
+  ]
+ }
+}

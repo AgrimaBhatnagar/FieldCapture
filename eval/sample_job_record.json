@@ -1,0 +1,293 @@
+{
+ "schema": "fieldcapture.job/0.1",
+ "job_id": "JOB-SAMPLE-1",
+ "started_at": "2026-11-23T12:00:00Z",
+ "session": {
+  "state": "active",
+  "device_mode": "mock_device_kit",
+  "drop_recoveries": 0
+ },
+ "captures": [
+  {
+   "id": "c1",
+   "type": "nameplate",
+   "ts": "2026-11-23T12:00:00Z",
+   "sync": "queued",
+   "quality": {
+    "pass": true,
+    "reasons": [],
+    "retake_prompt": null,
+    "metrics": {
+     "luma": 126.36525783362141,
+     "blur_ratio": 0.5474418696918881,
+     "framing": 1.32916230137531
+    }
+   },
+   "fields": {
+    "make": {
+     "value": "ELECTROLUX",
+     "confidence": 0.75,
+     "source": "ocr"
+    },
+    "model": {
+     "value": "FFAD5033W1",
+     "confidence": 0.37,
+     "source": "ocr"
+    },
+    "serial": {
+     "value": "KN95001949",
+     "confidence": 0.09,
+     "source": "ocr"
+    },
+    "manufacture_date": {
+     "value": "12/19",
+     "confidence": 0.125,
+     "source": "ocr"
+    }
+   }
+  },
+  {
+   "id": "c2",
+   "type": "damage",
+   "ts": "2026-11-23T12:00:00Z",
+   "sync": "queued",
+   "quality": {
+    "pass": true,
+    "reasons": [],
+    "retake_prompt": null,
+    "metrics": {
+     "luma": 145.53595311581424,
+     "blur_ratio": 0.4935471068892048
+    }
+   },
+   "fields": {
+    "room": {
+     "value": "kitchen",
+     "confidence": 0.9,
+     "source": "voice"
+    },
+    "surface": {
+     "value": "ceiling",
+     "confidence": 0.9,
+     "source": "voice"
+    },
+    "damage_type": {
+     "value": "water stain",
+     "confidence": 0.619,
+     "source": "cv-tree"
+    },
+    "length_ft": {
+     "value": null,
+     "confidence": 0.0,
+     "source": "pending"
+    },
+    "height_ft": {
+     "value": null,
+     "confidence": 0.0,
+     "source": "pending"
+    }
+   }
+  },
+  {
+   "id": "c3",
+   "type": "damage",
+   "ts": "2026-11-23T12:00:00Z",
+   "sync": "queued",
+   "quality": {
+    "pass": true,
+    "reasons": [],
+    "retake_prompt": null,
+    "metrics": {
+     "luma": 156.6436078125,
+     "blur_ratio": 0.4635346089018937
+    }
+   },
+   "fields": {
+    "room": {
+     "value": "bedroom",
+     "confidence": 0.9,
+     "source": "voice"
+    },
+    "surface": {
+     "value": "north wall",
+     "confidence": 0.9,
+     "source": "voice"
+    },
+    "damage_type": {
+     "value": "water stain",
+     "confidence": 0.619,
+     "source": "cv-tree"
+    },
+    "length_ft": {
+     "value": null,
+     "confidence": 0.0,
+     "source": "pending"
+    },
+    "height_ft": {
+     "value": null,
+     "confidence": 0.0,
+     "source": "pending"
+    }
+   }
+  },
+  {
+   "id": "c4",
+   "type": "damage",
+   "ts": "2026-11-23T12:00:00Z",
+   "sync": "queued",
+   "quality": {
+    "pass": true,
+    "reasons": [],
+    "retake_prompt": null,
+    "metrics": {
+     "luma": 124.19316288606946,
+     "blur_ratio": 0.5127975307910491
+    }
+   },
+   "fields": {
+    "room": {
+     "value": "basement",
+     "confidence": 0.9,
+     "source": "voice"
+    },
+    "surface": {
+     "value": "floor",
+     "confidence": 0.9,
+     "source": "voice"
+    },
+    "damage_type": {
+     "value": "water stain",
+     "confidence": 0.619,
+     "source": "cv-tree"
+    },
+    "length_ft": {
+     "value": null,
+     "confidence": 0.0,
+     "source": "pending"
+    },
+    "height_ft": {
+     "value": null,
+     "confidence": 0.0,
+     "source": "pending"
+    }
+   }
+  },
+  {
+   "id": "c5",
+   "type": "note",
+   "ts": "2026-11-23T12:01:00Z",
+   "sync": "queued",
+   "quality": null,
+   "fields": {
+    "text": {
+     "value": "subfloor soft by the cabinet in the kitchen",
+     "confidence": 0.95,
+     "source": "voice"
+    },
+    "room": {
+     "value": "kitchen",
+     "confidence": 0.9,
+     "source": "keyword"
+    },
+    "surface": {
+     "value": "subfloor",
+     "confidence": 0.85,
+     "source": "keyword"
+    },
+    "condition": {
+     "value": "soft",
+     "confidence": 0.8,
+     "source": "keyword"
+    }
+   }
+  }
+ ],
+ "line_items": [
+  {
+   "code": "WH-01",
+   "qty": 1,
+   "confidence": 0.5
+  },
+  {
+   "code": "CEI-01",
+   "qty": null,
+   "confidence": 0.3
+  },
+  {
+   "code": "DRY-02",
+   "qty": null,
+   "confidence": 0.3
+  },
+  {
+   "code": "DOC-01",
+   "qty": 1,
+   "confidence": 0.8
+  },
+  {
+   "code": "DEH-01",
+   "qty": 1,
+   "confidence": 0.6
+  },
+  {
+   "code": "AIR-01",
+   "qty": 1,
+   "confidence": 0.6
+  },
+  {
+   "code": "DRY-01",
+   "qty": null,
+   "confidence": 0.3
+  },
+  {
+   "code": "DRY-02",
+   "qty": null,
+   "confidence": 0.3
+  },
+  {
+   "code": "DOC-01",
+   "qty": 1,
+   "confidence": 0.8
+  },
+  {
+   "code": "DEH-01",
+   "qty": 1,
+   "confidence": 0.6
+  },
+  {
+   "code": "AIR-01",
+   "qty": 1,
+   "confidence": 0.6
+  },
+  {
+   "code": "FLR-01",
+   "qty": null,
+   "confidence": 0.3
+  },
+  {
+   "code": "DOC-01",
+   "qty": 1,
+   "confidence": 0.8
+  },
+  {
+   "code": "DEH-01",
+   "qty": 1,
+   "confidence": 0.6
+  },
+  {
+   "code": "AIR-01",
+   "qty": 1,
+   "confidence": 0.6
+  },
+  {
+   "code": "CAB-01",
+   "qty": 1,
+   "confidence": 0.5
+  },
+  {
+   "code": "FLR-01",
+   "qty": null,
+   "confidence": 0.4
+  }
+ ],
+ "notes": "Built from uploaded still images with typed commands. NOT a live walk-through. damage sizes left empty (no depth sensor, none estimated)."
+}

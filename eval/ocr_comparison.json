@@ -1,0 +1,203 @@
+{
+ "full_norefine": {
+  "secs_per_plate": 16.9,
+  "acc": {
+   "nameplate.make": 1.0,
+   "nameplate.manufacture_date": 0.75,
+   "nameplate.model": 0.7,
+   "nameplate.serial": 0.667
+  },
+  "errors": [
+   [
+    "pic10.jpg#1",
+    "model",
+    "LMXS30776S/00",
+    "LMXS307765/0",
+    0.0
+   ],
+   [
+    "pic10.jpg#1",
+    "serial",
+    "410KRXDOR682",
+    null,
+    0.0
+   ],
+   [
+    "pic10.jpg#1",
+    "manufacture_date",
+    "2014.10",
+    "2014.11",
+    0.083
+   ],
+   [
+    "pic3.jpg#3",
+    "model",
+    "LP0721WSR",
+    "LPO721WSR",
+    0.056
+   ],
+   [
+    "pic8.jpg#8",
+    "model",
+    "WRF767SDEM01",
+    "WRF767SDEN@1",
+    0.064
+   ],
+   [
+    "pic8.jpg#8",
+    "serial",
+    "K73910658",
+    "K73919658",
+    0.497
+   ]
+  ]
+ },
+ "full_refine": {
+  "secs_per_plate": 19.2,
+  "acc": {
+   "nameplate.make": 1.0,
+   "nameplate.manufacture_date": 0.75,
+   "nameplate.model": 0.4,
+   "nameplate.serial": 0.5
+  },
+  "errors": [
+   [
+    "pic1.jpg#0",
+    "model",
+    "ADJ8000/5K/MM/LED",
+    "ADJ8000/SK/MM/LED",
+    0.25
+   ],
+   [
+    "pic10.jpg#1",
+    "model",
+    "LMXS30776S/00",
+    "LMXS307765/0",
+    0.0
+   ],
+   [
+    "pic10.jpg#1",
+    "serial",
+    "410KRXDOR682",
+    null,
+    0.0
+   ],
+   [
+    "pic10.jpg#1",
+    "manufacture_date",
+    "2014.10",
+    "2014.11",
+    0.083
+   ],
+   [
+    "pic2.jpg#2",
+    "model",
+    "FFAD5033W1",
+    "FFADS033W1",
+    0.333
+   ],
+   [
+    "pic3.jpg#3",
+    "model",
+    "LP0721WSR",
+    "LPO721WSR",
+    0.056
+   ],
+   [
+    "pic8.jpg#8",
+    "model",
+    "WRF767SDEM01",
+    "WRF767SDEN@1",
+    0.064
+   ],
+   [
+    "pic8.jpg#8",
+    "serial",
+    "K73910658",
+    "K73919658",
+    0.622
+   ],
+   [
+    "pic9.jpg#9",
+    "model",
+    "AXGT24AATH",
+    "LAXGT24AATH",
+    0.5
+   ],
+   [
+    "pic9.jpg#9",
+    "serial",
+    "T021688",
+    "7021688",
+    0.5
+   ]
+  ]
+ },
+ "fast_norefine": {
+  "secs_per_plate": 6.2,
+  "acc": {
+   "nameplate.make": 0.9,
+   "nameplate.manufacture_date": 1.0,
+   "nameplate.model": 0.6,
+   "nameplate.serial": 0.5
+  },
+  "errors": [
+   [
+    "pic10.jpg#1",
+    "model",
+    "LMXS30776S/00",
+    "LMXS307768/00",
+    0.095
+   ],
+   [
+    "pic10.jpg#1",
+    "serial",
+    "410KRXDOR682",
+    null,
+    0.0
+   ],
+   [
+    "pic3.jpg#3",
+    "make",
+    "LG",
+    null,
+    0.0
+   ],
+   [
+    "pic3.jpg#3",
+    "model",
+    "LP0721WSR",
+    "LPO721WWSR",
+    0.115
+   ],
+   [
+    "pic4.jpg#4",
+    "serial",
+    "HG200312N",
+    null,
+    0.0
+   ],
+   [
+    "pic7.jpg#7",
+    "model",
+    "LFC25770SB",
+    "ITLFC25770SB",
+    0.212
+   ],
+   [
+    "pic8.jpg#8",
+    "model",
+    "WRF767SDEM01",
+    "OZR134a",
+    0.22
+   ],
+   [
+    "pic8.jpg#8",
+    "serial",
+    "K73910658",
+    "K73919658",
+    0.6
+   ]
+  ]
+ }
+}

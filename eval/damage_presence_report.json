@@ -1,0 +1,40 @@
+{
+  "task": "binary damage presence detection",
+  "dataset_size": 41,
+  "labels_source": "existing damage_labels.json, not independently verified",
+  "validation": "leave one out cross validation",
+  "overall_accuracy": 0.7805,
+  "selective_threshold": 0.7,
+  "selective_coverage_count": 24,
+  "selective_coverage_fraction": 0.5854,
+  "selective_accuracy": 0.9583,
+  "abstained_count": 17,
+  "confusion_all": [
+    [
+      28,
+      3
+    ],
+    [
+      6,
+      4
+    ]
+  ],
+  "confusion_selective": [
+    [
+      23,
+      0
+    ],
+    [
+      1,
+      0
+    ]
+  ],
+  "warning": "Selective accuracy applies only to the accepted subset. It is not four class subtype accuracy or independent held out performance.",
+  "accepted_prediction_classes": {
+    "damage": 25,
+    "none": 0
+  },
+  "accepted_correct": 24,
+  "accepted_total": 25,
+  "metric_interpretation": "All accepted predictions are damage-present predictions on this development set; no none prediction cleared the threshold. The 95.83% figure is accepted-subset accuracy, not overall accuracy, specificity, or subtype accuracy."
+}
